@@ -2252,7 +2252,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: monochrome-transparent_packed_102
+      name: Rock
       rect:
         serializedVersion: 2
         x: 80
@@ -22739,6 +22739,7 @@ TextureImporter:
     nameFileIdTable:
       EnemyType1: -2023569584
       Player: 1280974527
+      Rock: 1725421689
       WoodWallFront: 1602515173
       WoodWallSide: -1164441028
       WoodWallTop: -921736565
@@ -22767,7 +22768,6 @@ TextureImporter:
       monochrome-transparent_packed_1017: 1088494643
       monochrome-transparent_packed_1018: 1041735210
       monochrome-transparent_packed_1019: -1807558206
-      monochrome-transparent_packed_102: 1725421689
       monochrome-transparent_packed_1020: -562946074
       monochrome-transparent_packed_1021: 1974385409
       monochrome-transparent_packed_1022: -892766481
