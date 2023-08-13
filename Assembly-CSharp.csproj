@@ -58,10 +58,13 @@
     <Analyzer Include="D:\Gamedev\Unity\2022.3.7f1\Editor\Data\Tools\Unity.SourceGenerators\Unity.Properties.SourceGenerator.dll" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Prefabs\Projectiles\Projectile.cs" />
     <Compile Include="Assets\CameraPostProcess.cs" />
     <Compile Include="Assets\Prefabs\CameraController.cs" />
     <Compile Include="Assets\Prefabs\Player\PlayerScript.cs" />
     <Compile Include="Assets\Prefabs\Enemy\EnemyAI.cs" />
+    <Compile Include="Assets\Prefabs\Attackable.cs" />
+    <Compile Include="Assets\Prefabs\DestroyableEntity.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Shaders\InvertColor.shader" />
@@ -799,11 +802,11 @@
     <Reference Include="Unity.TextMeshPro.Editor">
       <HintPath>Library\ScriptAssemblies\Unity.TextMeshPro.Editor.dll</HintPath>
     </Reference>
-    <Reference Include="Unity.2D.Aseprite.Editor">
-      <HintPath>Library\ScriptAssemblies\Unity.2D.Aseprite.Editor.dll</HintPath>
-    </Reference>
     <Reference Include="Unity.Searcher.Editor">
       <HintPath>Library\ScriptAssemblies\Unity.Searcher.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.2D.Aseprite.Editor">
+      <HintPath>Library\ScriptAssemblies\Unity.2D.Aseprite.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.2D.SpriteShape.Editor">
       <HintPath>Library\ScriptAssemblies\Unity.2D.SpriteShape.Editor.dll</HintPath>

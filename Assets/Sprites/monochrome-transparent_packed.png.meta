@@ -11744,7 +11744,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: monochrome-transparent_packed_554
+      name: WoodWallSide
       rect:
         serializedVersion: 2
         x: 256
@@ -15755,7 +15755,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: monochrome-transparent_packed_745
+      name: WoodWallTop
       rect:
         serializedVersion: 2
         x: 176
@@ -16826,7 +16826,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: monochrome-transparent_packed_796
+      name: WoodWallFront
       rect:
         serializedVersion: 2
         x: 208
@@ -22739,6 +22739,9 @@ TextureImporter:
     nameFileIdTable:
       EnemyType1: -2023569584
       Player: 1280974527
+      WoodWallFront: 1602515173
+      WoodWallSide: -1164441028
+      WoodWallTop: -921736565
       monochrome-transparent_packed_0: -1294185230
       monochrome-transparent_packed_1: -2067348953
       monochrome-transparent_packed_10: 231768769
@@ -23320,7 +23323,6 @@ TextureImporter:
       monochrome-transparent_packed_551: -405394743
       monochrome-transparent_packed_552: -625047274
       monochrome-transparent_packed_553: 1176892369
-      monochrome-transparent_packed_554: -1164441028
       monochrome-transparent_packed_555: 1250661894
       monochrome-transparent_packed_556: 1701276234
       monochrome-transparent_packed_557: -385332835
@@ -23532,7 +23534,6 @@ TextureImporter:
       monochrome-transparent_packed_742: 570015407
       monochrome-transparent_packed_743: -1792249010
       monochrome-transparent_packed_744: 424502171
-      monochrome-transparent_packed_745: -921736565
       monochrome-transparent_packed_746: -1125157362
       monochrome-transparent_packed_747: 676894453
       monochrome-transparent_packed_748: 1250832928
@@ -23588,7 +23589,6 @@ TextureImporter:
       monochrome-transparent_packed_793: 1306615691
       monochrome-transparent_packed_794: 1793161096
       monochrome-transparent_packed_795: 160998396
-      monochrome-transparent_packed_796: 1602515173
       monochrome-transparent_packed_797: 958963079
       monochrome-transparent_packed_798: -520760428
       monochrome-transparent_packed_799: -1835327583

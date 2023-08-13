@@ -23,7 +23,11 @@ ScriptedImporter:
     _asset: {instanceID: 0}
   - _key: IntGrid_2
     _asset: {instanceID: 0}
-  _entities: []
+  _entities:
+  - _key: Tree1
+    _asset: {fileID: 8208784142411664675, guid: e15e205fd6aaa944f9ba020091e5b375, type: 3}
+  - _key: Tree2
+    _asset: {fileID: 8208784142411664675, guid: e97dee3066d6ac641b021dc88e8ab343, type: 3}
   _enumGenerate: 0
   _enumPath: 
   _enumNamespace: 
