@@ -35,6 +35,7 @@ public class Projectile : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other)
     {
+        // TODO: attack only the enemy not tree(maybe)
         if (other.gameObject.tag == transform.parent.tag)
             return;
         DestroyableEntity health = other.gameObject.GetComponent<DestroyableEntity>();

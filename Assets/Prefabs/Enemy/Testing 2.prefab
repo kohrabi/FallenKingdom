@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 8488005736975774445}
   - component: {fileID: 7879872706765193664}
   m_Layer: 0
-  m_Name: EnemyParent
+  m_Name: Testing 2
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -121,7 +121,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2b4ae731548b6c04a957d8965adee2a3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MovementSpeed: 5
+  MovementSpeed: 5.3
   target: {fileID: 0}
   AttackRange: 4
   AttackDelay: 5
@@ -230,7 +230,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: -2023569584, guid: cd113d77b71d8f34d9af61c6b30035a2, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 0.470248, b: 0, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
