@@ -4,9 +4,10 @@ using UnityEngine;
 
 public class PlayerScript : MonoBehaviour
 {
-    public float MovementSpeed = 10f;
+    public float MovementSpeed = 6f;
 
     private Rigidbody2D rb;
+    public Animator animator;
     public Vector2 moveDir;
     
     // Start is called before the first frame update
@@ -31,6 +32,8 @@ public class PlayerScript : MonoBehaviour
         float moveX = Input.GetAxisRaw("Horizontal");
         float moveY = Input.GetAxisRaw("Vertical");
         moveDir = new Vector2(moveX, moveY).normalized;
+        // Changing State Between moving and idle
+        animator.SetBool("isMoving", moveDir != Vector2.zero);
     }
 
     private void Move()
