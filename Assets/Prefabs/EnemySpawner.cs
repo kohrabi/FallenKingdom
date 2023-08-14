@@ -30,10 +30,10 @@ public class EnemySpawner : MonoBehaviour
     public float SpawnDelay = 6f;
     public bool isDay = true;
     public bool isNight = false;
+    public List<GameObject> SpawnedEnemy;
 
     public EnemyWave[] Waves;
     private List<EnemyWave> enemyToSpawn;
-    private List<GameObject> spawnedEnemy;
 
     float nextSpawnTime = 0f;
     bool canSpawn = false;
@@ -42,7 +42,7 @@ public class EnemySpawner : MonoBehaviour
     void Start()
     {
         enemyToSpawn = new();
-        spawnedEnemy = new();
+        SpawnedEnemy = new();
     }
 
     // Update is called once per frame
@@ -51,15 +51,15 @@ public class EnemySpawner : MonoBehaviour
         if (canSpawn)
         {
             SpawnWave();
-            if (spawnedEnemy.Count <= 0 && enemyToSpawn.Count <= 0)
+            if (SpawnedEnemy.Count <= 0 && enemyToSpawn.Count <= 0)
             {
                 // Set The Time to day
                 StartCoroutine(DelayTransitionDayNight());
             }
         }
-        for (int i = 0; i < spawnedEnemy.Count; i++)
-            if (spawnedEnemy[i] == null)
-                spawnedEnemy.RemoveAt(i);
+        for (int i = 0; i < SpawnedEnemy.Count; i++)
+            if (SpawnedEnemy[i] == null)
+                SpawnedEnemy.RemoveAt(i);
     }
 
     private IEnumerator DelayTransitionDayNight()
@@ -112,7 +112,7 @@ public class EnemySpawner : MonoBehaviour
 
             GameObject enemy = Instantiate(randomEnemy.Prefab, new Vector2(X, Y), Quaternion.identity);
             enemy.GetComponent<EnemyAI>().target = GameObject.Find("PlayerParent").transform;
-            spawnedEnemy.Add(enemy);
+            SpawnedEnemy.Add(enemy);
             if (randomEnemy.EnemyCount <= 0)
                 enemyToSpawn.Remove(randomEnemy);
         }

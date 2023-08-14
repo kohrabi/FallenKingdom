@@ -121,7 +121,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2b4ae731548b6c04a957d8965adee2a3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MovementSpeed: 5
+  MovementSpeed: 4
   target: {fileID: 0}
   AttackRange: 4
   AttackDelay: 5
@@ -150,6 +150,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe63ded287c934e4dbd3e08124f60740, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  spawnPosition: {fileID: 0}
   Range: 140
   bulletPrefab: {fileID: 4536303448006705977, guid: 03ff7b081ab90d04b8a788464e195d3d, type: 3}
   bulletSpeed: 13

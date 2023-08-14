@@ -1706,7 +1706,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: monochrome-transparent_packed_76
+      name: Archer
       rect:
         serializedVersion: 2
         x: 448
@@ -6011,7 +6011,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: monochrome-transparent_packed_281
+      name: Crossbow1
       rect:
         serializedVersion: 2
         x: 592
@@ -6032,7 +6032,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: monochrome-transparent_packed_282
+      name: Crossbow2
       rect:
         serializedVersion: 2
         x: 608
@@ -6053,7 +6053,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: monochrome-transparent_packed_283
+      name: Crossbow3
       rect:
         serializedVersion: 2
         x: 624
@@ -6074,7 +6074,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: monochrome-transparent_packed_284
+      name: Arrow
       rect:
         serializedVersion: 2
         x: 640
@@ -7040,7 +7040,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: monochrome-transparent_packed_330
+      name: Bow1
       rect:
         serializedVersion: 2
         x: 592
@@ -7061,12 +7061,12 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: monochrome-transparent_packed_331
+      name: Bow2
       rect:
         serializedVersion: 2
         x: 608
         y: 240
-        width: 16
+        width: 17
         height: 16
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -7082,7 +7082,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: monochrome-transparent_packed_332
+      name: Bow3
       rect:
         serializedVersion: 2
         x: 624
@@ -7103,7 +7103,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: monochrome-transparent_packed_333
+      name: Bow
       rect:
         serializedVersion: 2
         x: 640
@@ -7124,7 +7124,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: monochrome-transparent_packed_334
+      name: Bow4
       rect:
         serializedVersion: 2
         x: 656
@@ -7145,7 +7145,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: monochrome-transparent_packed_335
+      name: Quiver
       rect:
         serializedVersion: 2
         x: 672
@@ -22737,8 +22737,19 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
+      Archer: 1720878665
+      Arrow: -836278916
+      Bow: 2059460161
+      Bow1: 1177606506
+      Bow2: 337228366
+      Bow3: 12812100
+      Bow4: 2115953685
+      Crossbow1: 1201460500
+      Crossbow2: -293880970
+      Crossbow3: -1384859172
       EnemyType1: -2023569584
       Player: 1280974527
+      Quiver: 1560929072
       Rock: 1725421689
       WoodWallFront: 1602515173
       WoodWallSide: -1164441028
@@ -23021,10 +23032,6 @@ TextureImporter:
       monochrome-transparent_packed_279: -2002913821
       monochrome-transparent_packed_28: 1667770503
       monochrome-transparent_packed_280: 1312407405
-      monochrome-transparent_packed_281: 1201460500
-      monochrome-transparent_packed_282: -293880970
-      monochrome-transparent_packed_283: -1384859172
-      monochrome-transparent_packed_284: -836278916
       monochrome-transparent_packed_285: 2009564221
       monochrome-transparent_packed_286: -664747494
       monochrome-transparent_packed_287: -208280351
@@ -23075,12 +23082,6 @@ TextureImporter:
       monochrome-transparent_packed_328: 827557942
       monochrome-transparent_packed_329: 1477580181
       monochrome-transparent_packed_33: 1932109643
-      monochrome-transparent_packed_330: 1177606506
-      monochrome-transparent_packed_331: 337228366
-      monochrome-transparent_packed_332: 12812100
-      monochrome-transparent_packed_333: 2059460161
-      monochrome-transparent_packed_334: 2115953685
-      monochrome-transparent_packed_335: 1560929072
       monochrome-transparent_packed_336: 1827953929
       monochrome-transparent_packed_337: -1198994788
       monochrome-transparent_packed_338: 274763066
@@ -23549,7 +23550,6 @@ TextureImporter:
       monochrome-transparent_packed_757: -180686825
       monochrome-transparent_packed_758: 1528942269
       monochrome-transparent_packed_759: 773998384
-      monochrome-transparent_packed_76: 1720878665
       monochrome-transparent_packed_760: -486658410
       monochrome-transparent_packed_761: -475425544
       monochrome-transparent_packed_762: 1138176559

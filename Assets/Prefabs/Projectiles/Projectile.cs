@@ -5,6 +5,7 @@ using UnityEngine;
 public class Projectile : MonoBehaviour
 {
     public float Range;
+    [HideInInspector] // This is public for Attackable to change the projectile damage when it hit
     public float Damage;
 
     float _remainingRange;
@@ -36,7 +37,12 @@ public class Projectile : MonoBehaviour
     void OnTriggerEnter2D(Collider2D other)
     {
         // TODO: attack only the enemy not tree(maybe)
+        // this shit is stupid omgggg
         if (other.gameObject.tag == transform.parent.tag)
+            return;
+        if (other.gameObject.tag == "Props")
+            return;
+        if (transform.parent.tag == "Friendly" && other.gameObject.tag == "Player")
             return;
         DestroyableEntity health = other.gameObject.GetComponent<DestroyableEntity>();
         if (health != null)

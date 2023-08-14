@@ -60,6 +60,7 @@
   <ItemGroup>
     <Compile Include="Assets\Prefabs\Projectiles\Projectile.cs" />
     <Compile Include="Assets\Prefabs\CameraController.cs" />
+    <Compile Include="Assets\FriendlyAI.cs" />
     <Compile Include="Assets\Prefabs\Player\PlayerScript.cs" />
     <Compile Include="Assets\Prefabs\Enemy\EnemyAI.cs" />
     <Compile Include="Assets\Prefabs\Attackable.cs" />
