@@ -17,7 +17,7 @@ public class SwordButton : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
     {
         arrow.SetActive(true);
     }
-
+     
     public void OnPointerExit(PointerEventData eventData)
     {
         arrow.SetActive(false);

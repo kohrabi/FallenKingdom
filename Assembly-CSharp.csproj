@@ -59,16 +59,19 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\MaskLight\LightingCamera.cs" />
+    <Compile Include="Assets\Menu\UpgradeManager.cs" />
+    <Compile Include="Assets\Menu\UpgradeButton.cs" />
     <Compile Include="Assets\Prefabs\Projectiles\Projectile.cs" />
+    <Compile Include="Assets\Menu\FriendlyButton.cs" />
     <Compile Include="Assets\Prefabs\CameraController.cs" />
     <Compile Include="Assets\Prefabs\Player\PlayerScript.cs" />
     <Compile Include="Assets\Prefabs\Enemy\EnemyAI.cs" />
+    <Compile Include="Assets\Menu\SwordButton.cs" />
     <Compile Include="Assets\Prefabs\Props\WallManager.cs" />
     <Compile Include="Assets\Prefabs\Attackable.cs" />
     <Compile Include="Assets\Prefabs\TimeManager.cs" />
     <Compile Include="Assets\Prefabs\DestroyableEntity.cs" />
     <Compile Include="Assets\Prefabs\LightScript.cs" />
-    <Compile Include="Assets\SwordButton.cs" />
     <Compile Include="Assets\Prefabs\Props\Walls.cs" />
     <Compile Include="Assets\Prefabs\CameraPostProcess.cs" />
     <Compile Include="Assets\Prefabs\Friendly\FriendlyAI.cs" />

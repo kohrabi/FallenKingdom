@@ -11,8 +11,10 @@ public class PlayerScript : MonoBehaviour
     public Vector2 Offset = Vector2.zero;
 
     Vector2 facing = Vector2.right;
-    bool placeTileInputCheck = false;
+    bool openShopInput = false;
     bool rotateTileInputCheck = false;
+    public GameObject placingPrefab;
+    Transform gameManager;
 
     Vector2 mouseInput;
 
@@ -20,14 +22,16 @@ public class PlayerScript : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-        wallManager = GameObject.FindWithTag("WallManager").GetComponent<WallManager>();  
+        wallManager = GameObject.FindWithTag("WallManager").GetComponent<WallManager>();
+        gameManager = GameObject.FindWithTag("UpgradeManager").transform;
+        placingPrefab = wallManager.WallPrefab;
     }
 
     // Update is called once per frame
     void Update()
     {
         ProcessInput();
-        placeTileInputCheck = Input.GetKeyDown(KeyCode.B);
+        openShopInput = Input.GetKeyDown(KeyCode.B);
         rotateTileInputCheck = Input.GetKeyDown(KeyCode.R);
         mouseInput = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         PlaceWallTemp();
@@ -39,10 +43,10 @@ public class PlayerScript : MonoBehaviour
     void FixedUpdate()
     {
         Move();
-        if (tempWall != null)
+        if (tempPrefab != null)
         {
             Vector2 pos = new Vector2(Mathf.RoundToInt(mouseInput.x - 0.5f), Mathf.RoundToInt(mouseInput.y - 0.5f));
-            tempWall.transform.position = new Vector2(pos.x, pos.y);
+            tempPrefab.transform.position = new Vector2(pos.x, pos.y);
         }
     }
 
@@ -50,15 +54,17 @@ public class PlayerScript : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(0))
         {
-            if (tempWall != null)
+            if (tempPrefab != null)
             {
                 if (!Physics2D.OverlapCircle(mouseInput, 0.2f))
                 {
-                    GameObject placedWall = Instantiate(tempWall);
-                    placedWall.transform.SetParent(wallManager.transform);
-                    Vector4 color = placedWall.transform.GetChild(0).GetComponent<SpriteRenderer>().color;
-                    placedWall.GetComponent<BoxCollider2D>().enabled = true;
-                    placedWall.transform.GetChild(0).GetComponent<SpriteRenderer>().color = new Color(color.x, color.y, color.z, 1f);
+                    GameObject placedPrefab = Instantiate(tempPrefab);
+                    placedPrefab.transform.SetParent(gameManager);
+                    Vector4 color = placedPrefab.transform.GetChild(0).GetComponent<SpriteRenderer>().color;
+                    placedPrefab.GetComponent<BoxCollider2D>().enabled = true;
+                    if (tempPrefab.tag != "Wall")
+                        tempPrefab.GetComponent<Attackable>().enabled = true;
+                    placedPrefab.transform.GetChild(0).GetComponent<SpriteRenderer>().color = new Color(color.x, color.y, color.z, 1f);
                 }
              }
         }
@@ -76,34 +82,40 @@ public class PlayerScript : MonoBehaviour
         }
     }
 
-    GameObject tempWall;
+    GameObject tempPrefab;
+    public void PlacePrefabTemp(GameObject gameObject)
+    {
+        if (tempPrefab == null)
+        {
+            placingPrefab = gameObject;
+            Vector2 pos = new Vector2(Mathf.Round(mouseInput.x), Mathf.Round(mouseInput.y));
+            tempPrefab = Instantiate(placingPrefab, new Vector2(pos.x, pos.y), Quaternion.identity);
+            if (tempPrefab.tag != "Wall")
+                tempPrefab.GetComponent<Attackable>().enabled = false;
+            tempPrefab.GetComponent<BoxCollider2D>().enabled = false;
+            Vector4 color = tempPrefab.transform.GetChild(0).GetComponent<SpriteRenderer>().color;
+            tempPrefab.transform.GetChild(0).GetComponent<SpriteRenderer>().color = new Color(color.x, color.y, color.z, 0.3f);
+        }
+    }
+
     private void PlaceWallTemp()
     {
-        if (placeTileInputCheck)
+        if (openShopInput)
         {
-            if (tempWall == null)
+            if (tempPrefab == null)
             {
-                // BIG ASS TO DO (PLACE BY MOUSE)
-                Vector2 pos = new Vector2(Mathf.Round(mouseInput.x), Mathf.Round(mouseInput.y));
-                tempWall = Instantiate(wallManager.WallPrefab, new Vector2(pos.x, pos.y), Quaternion.identity);
-                tempWall.GetComponent<BoxCollider2D>().enabled = false;
-                Vector4 color = tempWall.transform.GetChild(0).GetComponent<SpriteRenderer>().color;
-                tempWall.transform.GetChild(0).GetComponent<SpriteRenderer>().color = new Color(color.x, color.y, color.z, 0.3f);
+                GameObject.Find("Canvas").transform.GetChild(0).gameObject.SetActive(true);
             }
             else
-                Destroy(tempWall);
+                Destroy(tempPrefab);
         }
-        // 1 tile = 0.5, 0.5
-        // transform.position * tilePos
-        // press r to rotate face
-        // have a global wall manager to know the current upgrade
     }
 
     private void RotateTile()
     {
-        if (rotateTileInputCheck && tempWall != null)
+        if (rotateTileInputCheck && tempPrefab != null && tempPrefab.tag == "Walls")
         {
-            tempWall.GetComponent<Walls>().ChangeFace();
+            tempPrefab.GetComponent<Walls>().ChangeFace();
         }
     }
 

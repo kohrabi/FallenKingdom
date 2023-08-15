@@ -11,6 +11,11 @@ TagManager:
   - TimeManager
   - EnemySpawner
   - LightCamera
+  - Archer
+  - Knight
+  - Mage
+  - Wall
+  - UpgradeManager
   layers:
   - Default
   - TransparentFX
@@ -68,4 +73,7 @@ TagManager:
     locked: 0
   - name: Projectiles
     uniqueID: 1285532529
+    locked: 0
+  - name: Weather
+    uniqueID: 1740491623
     locked: 0
