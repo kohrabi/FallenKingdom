@@ -17,7 +17,7 @@ public class FriendlyAI : MonoBehaviour
     void Start()
     {
         attackComponent = GetComponent<Attackable>();        
-        spawner = GameObject.Find("EnemySpawner").GetComponent<EnemySpawner>();
+        spawner = GameObject.FindWithTag("EnemySpawner").GetComponent<EnemySpawner>();
     }
 
     // Update is called once per frame

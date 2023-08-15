@@ -15,7 +15,7 @@ public class TimeManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        spawner = GameObject.Find("EnemySpawner").GetComponent<EnemySpawner>();
+        spawner = GameObject.FindWithTag("EnemySpawner").GetComponent<EnemySpawner>();
         InvertColor.SetFloat("_Threshold", InvertColorThreshold);
         dayTime = Time.time + DayTime;
     }
@@ -43,6 +43,5 @@ public class TimeManager : MonoBehaviour
             if (threshold <= DayNightChangeSpeed + DayNightChangeSpeed / 10f)
                 spawner.SwitchNightTime();
         }
-        Debug.Log(threshold);
     }
 }

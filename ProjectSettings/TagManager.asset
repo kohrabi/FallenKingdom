@@ -7,6 +7,9 @@ TagManager:
   - Enemy
   - Friendly
   - Props
+  - WallManager
+  - TimeManager
+  - EnemySpawner
   layers:
   - Default
   - TransparentFX
@@ -14,7 +17,7 @@ TagManager:
   - 
   - Water
   - UI
-  - 
+  - Lighting
   - 
   - 
   - 
@@ -58,6 +61,9 @@ TagManager:
     locked: 0
   - name: Trees
     uniqueID: 2917268805
+    locked: 0
+  - name: Props
+    uniqueID: 3483181719
     locked: 0
   - name: Projectiles
     uniqueID: 1285532529

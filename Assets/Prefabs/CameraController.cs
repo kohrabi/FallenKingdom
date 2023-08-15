@@ -21,7 +21,7 @@ public class CameraController : MonoBehaviour
     {
         if (target == null)
             return;
-        moveDir = GameObject.Find("PlayerParent").GetComponent<PlayerScript>().moveDir;
+        moveDir = GameObject.FindWithTag("Player").GetComponent<PlayerScript>().moveDir;
         Vector3 offset = moveDir;
         offset.Scale(CameraOffset);
         offset.z = -10f;

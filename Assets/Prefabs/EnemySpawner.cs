@@ -111,7 +111,7 @@ public class EnemySpawner : MonoBehaviour
                 Y = Random.Range(-SpawnZone, -PlayableZone);
 
             GameObject enemy = Instantiate(randomEnemy.Prefab, new Vector2(X, Y), Quaternion.identity);
-            enemy.GetComponent<EnemyAI>().target = GameObject.Find("PlayerParent").transform;
+            enemy.GetComponent<EnemyAI>().target = GameObject.FindWithTag("Player").transform;
             SpawnedEnemy.Add(enemy);
             if (randomEnemy.EnemyCount <= 0)
                 enemyToSpawn.Remove(randomEnemy);
