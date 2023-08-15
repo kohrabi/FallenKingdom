@@ -12,12 +12,18 @@ public class TimeManager : MonoBehaviour
     public float InvertColorThreshold = 0.7f;
 
     public float dayTime = 0;
+
+    GameObject cam;
+    GameObject lightCam;
+
     // Start is called before the first frame update
     void Start()
     {
         spawner = GameObject.FindWithTag("EnemySpawner").GetComponent<EnemySpawner>();
         InvertColor.SetFloat("_Threshold", InvertColorThreshold);
         dayTime = Time.time + DayTime;
+        cam = GameObject.FindWithTag("MainCamera");
+        lightCam = cam.transform.GetChild(0).gameObject;
     }
 
     // Update is called once per frame
@@ -33,6 +39,8 @@ public class TimeManager : MonoBehaviour
             {
                 dayTime = Time.time + dayTime;
                 spawner.isDay = false;
+                cam.GetComponent<LightingCamera>().enabled = false;
+                lightCam.SetActive(false);
             }
         }
         // if out of daytime && is not night time
@@ -41,7 +49,11 @@ public class TimeManager : MonoBehaviour
             // switch to night time
             InvertColor.SetFloat("_Threshold", Mathf.Lerp(threshold, 0, DayNightChangeSpeed));
             if (threshold <= DayNightChangeSpeed + DayNightChangeSpeed / 10f)
+            {
                 spawner.SwitchNightTime();
+                cam.GetComponent<LightingCamera>().enabled = true;
+                lightCam.SetActive(true);
+            }
         }
     }
 }
