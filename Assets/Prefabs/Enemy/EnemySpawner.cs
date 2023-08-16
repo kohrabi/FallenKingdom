@@ -25,7 +25,9 @@ public class EnemySpawner : MonoBehaviour
     }
     public float TransitionDayNightDelay = 1f;
     public float PlayableZone = 5f; // The place where enemy cannot spawn
+    public float PlayableZoneOffset = 2f;
     public float SpawnZone = 10f;
+    public float ZoneDistance = 5f;
     public int CurrentWave = 1;
     public float SpawnDelay = 6f;
     public bool isDay = true;
@@ -43,6 +45,12 @@ public class EnemySpawner : MonoBehaviour
     {
         enemyToSpawn = new();
         SpawnedEnemy = new();
+    }
+
+    public void ChangeZone(float posMaxXY)
+    {
+        PlayableZone = posMaxXY + PlayableZoneOffset;
+        SpawnZone = posMaxXY + ZoneDistance;
     }
 
     // Update is called once per frame

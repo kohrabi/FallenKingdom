@@ -17,6 +17,8 @@ TagManager:
   - Wall
   - UpgradeManager
   - Torch
+  - King
+  - Shop
   layers:
   - Default
   - TransparentFX

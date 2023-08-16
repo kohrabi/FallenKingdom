@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 8966231853420573605}
   - component: {fileID: 615787582168842939}
   - component: {fileID: 887415378652565925}
+  - component: {fileID: 2209214855702094387}
   m_Layer: 0
   m_Name: Torch
   m_TagString: Torch
@@ -94,6 +95,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   HealthPoint: 4
+  currentHP: 0
   animator: {fileID: 887415378652565925}
 --- !u!95 &887415378652565925
 Animator:
@@ -116,6 +118,18 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &2209214855702094387
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1594463067859310312}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bff49fddb8c381d4d96e66c2d4c0f4b6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &7928620341650594190
 GameObject:
   m_ObjectHideFlags: 0
@@ -222,11 +236,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2548346958199469864, guid: 9747c651b0a9d9f4e827a6f95859907f, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: 0.48
       objectReference: {fileID: 0}
     - target: {fileID: 2548346958199469864, guid: 9747c651b0a9d9f4e827a6f95859907f, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 0.56
       objectReference: {fileID: 0}
     - target: {fileID: 2548346958199469864, guid: 9747c651b0a9d9f4e827a6f95859907f, type: 3}
       propertyPath: m_LocalPosition.z

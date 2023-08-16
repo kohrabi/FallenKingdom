@@ -13,12 +13,15 @@ public class EnemyAI : MonoBehaviour
     private Attackable attackComponent;
 
     bool canAttack = true;
+    Transform originTarget;
     bool canMove = true;
 
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        target = GameObject.FindWithTag("King").transform;
+        originTarget = target;
         attackComponent = GetComponent<Attackable>();
     }
 
@@ -43,6 +46,13 @@ public class EnemyAI : MonoBehaviour
             StartCoroutine(DelayAttack());
             StartCoroutine(BlockMovement(moveBlock));
         }
+        Collider2D[] collider = Physics2D.OverlapCircleAll(transform.position, 5f);
+        if (collider.Length != 0)
+        {
+            target = collider[0].transform;
+        }
+        if (target == null)
+            target = originTarget;
     }
 
     private IEnumerator BlockMovement(float time)

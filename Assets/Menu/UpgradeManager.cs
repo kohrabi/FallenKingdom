@@ -186,7 +186,7 @@ public class UpgradeManager : MonoBehaviour
         foreach (GameObject archer in GameObject.FindGameObjectsWithTag("Archer"))
         {
             archer.transform.GetChild(1).transform.GetChild(0).GetComponent<SpriteRenderer>().sprite = Archer[ArcherUpgrade].sprite;
-            archer.GetComponent<DestroyableEntity>().HealthPoint = Archer[ArcherUpgrade].Health;
+            archer.GetComponent<DestroyableEntity>().ChangeHP(Archer[ArcherUpgrade].Health);
             archer.GetComponent<Attackable>().Damage = Archer[ArcherUpgrade].HitPoint;
         }
         player.WoodsCount -= Archer[ArcherUpgrade - 1].Price;
@@ -199,7 +199,7 @@ public class UpgradeManager : MonoBehaviour
         foreach (GameObject knight in GameObject.FindGameObjectsWithTag("Knight"))
         {
             knight.transform.GetChild(0).GetComponent<SpriteRenderer>().sprite = Knight[KnightUpgrade].sprite;
-            knight.GetComponent<DestroyableEntity>().HealthPoint = Knight[KnightUpgrade].Health;
+            knight.GetComponent<DestroyableEntity>().ChangeHP(Knight[KnightUpgrade].Health);
             knight.GetComponent<Attackable>().Damage = Knight[KnightUpgrade].HitPoint;
             // Add chance to block attack
         }
@@ -213,7 +213,7 @@ public class UpgradeManager : MonoBehaviour
         foreach (GameObject mage in GameObject.FindGameObjectsWithTag("Mage"))
         {
             mage.transform.GetChild(0).GetComponent<SpriteRenderer>().sprite = Mage[MageUpgrade].sprite;
-            mage.GetComponent<DestroyableEntity>().HealthPoint = Mage[MageUpgrade].Health;
+            mage.GetComponent<DestroyableEntity>().ChangeHP(Mage[MageUpgrade].Health);
             mage.GetComponent<Attackable>().Damage = Mage[MageUpgrade].HitPoint;
             // add ability to heal more health
         }
@@ -228,7 +228,7 @@ public class UpgradeManager : MonoBehaviour
         foreach (GameObject wall in GameObject.FindGameObjectsWithTag("Wall"))
         {
             wall.transform.GetChild(0).GetComponent<SpriteRenderer>().sprite = wallManager.WallFaces[currentUpgrade].faces[wall.GetComponent<Walls>().facing];
-            wall.GetComponent<DestroyableEntity>().HealthPoint = wallManager.WallFaces[currentUpgrade].Health;
+            wall.GetComponent<DestroyableEntity>().ChangeHP(wallManager.WallFaces[currentUpgrade].Health);
         }
         player.WoodsCount -= wallManager.WallFaces[wallManager.CurrentUpgrade].Price;
         return 3;

@@ -6,15 +6,22 @@ using UnityEngine;
 public class DestroyableEntity : MonoBehaviour
 {
     public float HealthPoint = 4f;
+    public float currentHP;
     public Animator animator;
 
     public void Start()
     {
+        currentHP = HealthPoint;
         if (animator == null)
             animator = transform.GetChild(0).GetComponent<Animator>();
     }
 
-    void OnDestroy()
+    void OnEnable()
+    {
+        currentHP = HealthPoint;
+    }
+
+    void OnDisable()
     {
         if (GameObject.FindWithTag("Player") == null)
             return;
@@ -34,7 +41,7 @@ public class DestroyableEntity : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        if (HealthPoint <= 0)
+        if (currentHP <= 0)
         {
             StartCoroutine(Dead());
             // play dead animation and wait until it is finished then destroy it.
@@ -43,17 +50,32 @@ public class DestroyableEntity : MonoBehaviour
         }
     }
 
+    public void ChangeHP(float hp)
+    {
+        HealthPoint = hp;
+        currentHP = hp;
+    }
+
     public IEnumerator Dead()
     {
         animator.SetTrigger("Dead");
         while (!animator.GetCurrentAnimatorStateInfo(0).IsName("Dead"))
             yield return null;
-        Destroy(gameObject);
+        if (tag == "Props")
+        {
+            gameObject.GetComponent<SpriteRenderer>().enabled = false;
+            gameObject.GetComponent<BoxCollider2D>().enabled = false;
+            this.enabled = false;
+            gameObject.GetComponent<Animator>().enabled = false;
+            gameObject.GetComponent<PropRespawn>().Restart();
+        }
+        else
+            Destroy(gameObject);
     }
 
     public void Hit(float damage)
     {
-        HealthPoint -= damage;
+        currentHP -= damage;
         animator.SetTrigger("Damaged");
         // play hit animation
     }

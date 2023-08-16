@@ -128,8 +128,10 @@ MonoBehaviour:
   animator: {fileID: 4460550551208594795}
   moveDir: {x: 0, y: 0}
   Offset: {x: 0, y: 0}
-  AttackDelay: 1
+  AttackDelay: 0.5
   placingPrefab: {fileID: 0}
+  WoodsCount: 0
+  RocksCount: 0
 --- !u!114 &5021085897973656023
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -143,6 +145,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   HealthPoint: 4
+  currentHP: 0
   animator: {fileID: 4460550551208594795}
 --- !u!114 &6310040196427421759
 MonoBehaviour:
@@ -311,7 +314,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 1301871770234780998}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

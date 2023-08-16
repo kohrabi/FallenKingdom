@@ -15,6 +15,9 @@ public class TimeManager : MonoBehaviour
 
     GameObject cam;
     GameObject lightCam;
+    public bool IsDayTime = true;
+
+    public List<PropRespawn> propRespawns = new List<PropRespawn>();
 
     // Start is called before the first frame update
     void Start()
@@ -33,19 +36,26 @@ public class TimeManager : MonoBehaviour
         
         if (spawner.isDay)
         {
+            IsDayTime = true;
             // switch to day time
             InvertColor.SetFloat("_Threshold", Mathf.Lerp(threshold, InvertColorThreshold, DayNightChangeSpeed));
             if (threshold >= InvertColorThreshold - 0.04f)
             {
                 dayTime = Time.time + dayTime;
                 spawner.isDay = false;
-                cam.GetComponent<LightingCamera>().enabled = false;
+                for (int i = 0; i < propRespawns.Count; i++)    
+                {
+                    if (propRespawns[i].CheckRespawn())
+                        propRespawns.RemoveAt(i);
+                }
                 lightCam.SetActive(false);
+                cam.GetComponent<LightingCamera>().enabled = false;
             }
         }
         // if out of daytime && is not night time
         else if (dayTime <= Time.time && !spawner.isNight)
         {
+            IsDayTime = false;
             // switch to night time
             InvertColor.SetFloat("_Threshold", Mathf.Lerp(threshold, 0, DayNightChangeSpeed));
             if (threshold <= DayNightChangeSpeed + DayNightChangeSpeed / 10f)

@@ -25,6 +25,9 @@ public class PlayerScript : MonoBehaviour
     Attackable attackable;
     PickaxeScript pickaxe;
     TorchScript torch;
+    bool canBuy = false;
+    EnemySpawner enemy;
+    ShopButton shop;
 
     public int WoodsCount = 0;
     public int RocksCount = 0;
@@ -34,6 +37,8 @@ public class PlayerScript : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        shop = GameObject.FindWithTag("Shop").GetComponent<ShopButton>();
+        enemy = GameObject.FindWithTag("EnemySpawner").GetComponent<EnemySpawner>();
         wallManager = GameObject.FindWithTag("WallManager").GetComponent<WallManager>();
         upgradeManager = GameObject.FindWithTag("UpgradeManager").transform;
         pickaxe = transform.GetChild(2).GetComponent<PickaxeScript>();
@@ -99,6 +104,16 @@ public class PlayerScript : MonoBehaviour
             Move();
         else
             rb.velocity = Vector2.zero;
+        if (transform.position.magnitude <= enemy.PlayableZone + 5f)
+        {
+            canBuy = true;
+            shop.Show(true);
+        }
+        else
+        {
+            canBuy = false;
+            shop.Show(false);
+        }
         if (tempPrefab != null)
         {
             Vector2 pos = new Vector2(Mathf.RoundToInt(mouseInput.x - 0.5f), Mathf.RoundToInt(mouseInput.y - 0.5f));
@@ -186,7 +201,7 @@ public class PlayerScript : MonoBehaviour
 
     private void PlaceWallTemp()
     {
-        if (openShopInput)
+        if (openShopInput && canBuy)
         {
             if (GameObject.Find("Canvas").transform.GetChild(2).gameObject.activeSelf)
             {

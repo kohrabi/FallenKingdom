@@ -3764,7 +3764,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: monochrome-transparent_packed_174
+      name: King
       rect:
         serializedVersion: 2
         x: 448
@@ -5066,7 +5066,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: monochrome-transparent_packed_236
+      name: Shop2
       rect:
         serializedVersion: 2
         x: 656
@@ -11135,7 +11135,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: monochrome-transparent_packed_525
+      name: Cursor
       rect:
         serializedVersion: 2
         x: 576
@@ -11261,7 +11261,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: monochrome-transparent_packed_531
+      name: Health
       rect:
         serializedVersion: 2
         x: 672
@@ -19367,7 +19367,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: monochrome-transparent_packed_917
+      name: B
       rect:
         serializedVersion: 2
         x: 576
@@ -21698,7 +21698,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: monochrome-transparent_packed_1028
+      name: Shop
       rect:
         serializedVersion: 2
         x: 0
@@ -22739,6 +22739,7 @@ TextureImporter:
     nameFileIdTable:
       Archer: 1720878665
       Arrow: -836278916
+      B: 266119348
       Bow: 2059460161
       Bow1: 1177606506
       Bow2: 337228366
@@ -22747,6 +22748,7 @@ TextureImporter:
       Crossbow1: 1201460500
       Crossbow2: -293880970
       Crossbow3: -1384859172
+      Cursor: -1371845942
       E: -1145490588
       EnemyType1: -2023569584
       EnemyType2: 681720292
@@ -22754,6 +22756,8 @@ TextureImporter:
       EnemyType4: 910733643
       EnemyType6: 524774084
       EnemyType7: -363712271
+      Health: 985865686
+      King: 341429991
       Knight1: 763272169
       Knight2: -1002161889
       Knight3: 565850624
@@ -22772,6 +22776,8 @@ TextureImporter:
       Q: 773297276
       Quiver: 1560929072
       Rock: 1725421689
+      Shop: -334885233
+      Shop2: -1855698302
       Torch: -128468293
       Upgrade: 1884352066
       WoodWallFront: 1602515173
@@ -22811,7 +22817,6 @@ TextureImporter:
       monochrome-transparent_packed_1025: -573638830
       monochrome-transparent_packed_1026: -1025737669
       monochrome-transparent_packed_1027: -814192859
-      monochrome-transparent_packed_1028: -334885233
       monochrome-transparent_packed_1029: 711643600
       monochrome-transparent_packed_103: -514787009
       monochrome-transparent_packed_1030: -764599274
@@ -22935,7 +22940,6 @@ TextureImporter:
       monochrome-transparent_packed_171: 1429248765
       monochrome-transparent_packed_172: -793969944
       monochrome-transparent_packed_173: 194879864
-      monochrome-transparent_packed_174: 341429991
       monochrome-transparent_packed_175: 1215417266
       monochrome-transparent_packed_176: -1754778232
       monochrome-transparent_packed_177: -2092741648
@@ -23002,7 +23006,6 @@ TextureImporter:
       monochrome-transparent_packed_233: 1018371822
       monochrome-transparent_packed_234: -78990090
       monochrome-transparent_packed_235: -1098614637
-      monochrome-transparent_packed_236: -1855698302
       monochrome-transparent_packed_237: 1874422568
       monochrome-transparent_packed_238: 624175384
       monochrome-transparent_packed_239: -384261258
@@ -23300,14 +23303,12 @@ TextureImporter:
       monochrome-transparent_packed_522: 1422827205
       monochrome-transparent_packed_523: -186202688
       monochrome-transparent_packed_524: 1724403627
-      monochrome-transparent_packed_525: -1371845942
       monochrome-transparent_packed_526: -1900173779
       monochrome-transparent_packed_527: -1264558363
       monochrome-transparent_packed_528: 609630463
       monochrome-transparent_packed_529: 1048270279
       monochrome-transparent_packed_53: -784660641
       monochrome-transparent_packed_530: -1803652653
-      monochrome-transparent_packed_531: 985865686
       monochrome-transparent_packed_532: -1713744281
       monochrome-transparent_packed_533: 1091916640
       monochrome-transparent_packed_534: 1970974445
@@ -23723,7 +23724,6 @@ TextureImporter:
       monochrome-transparent_packed_914: 55960490
       monochrome-transparent_packed_915: 1051613373
       monochrome-transparent_packed_916: 1264839086
-      monochrome-transparent_packed_917: 266119348
       monochrome-transparent_packed_918: 371934483
       monochrome-transparent_packed_919: -568813290
       monochrome-transparent_packed_92: -1089791123

@@ -49,6 +49,10 @@ public class Projectile : MonoBehaviour
     {
         // TODO: attack only the enemy not tree(maybe)
         // this shit is stupid omgggg
+        if (transform.parent == null)
+            return;
+        if (other.tag == "King" && transform.parent.tag != "Enemy")
+            return;
         if (other.gameObject.tag == transform.parent.tag)
             return;
         if (other.gameObject.tag == "Props" && transform.parent.tag != "Player")
@@ -56,8 +60,7 @@ public class Projectile : MonoBehaviour
         if ((transform.parent.tag == "Archer" || transform.parent.tag == "Knight" || transform.parent.tag == "Mage") 
                 && other.gameObject.tag == "Player")
             return;
-        if (transform.parent.tag == "Player" &&
-            (other.transform.parent.tag == "Archer" || other.transform.parent.tag == "Knight" || other.transform.parent.tag == "Mage"))
+        if (transform.parent.tag == "Player" && (other.transform.tag == "Archer" || other.transform.tag == "Knight" || other.transform.tag == "Mage"))
             return;
         DestroyableEntity health = other.gameObject.GetComponent<DestroyableEntity>();
         if (health != null)
