@@ -138,6 +138,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   HealthPoint: 4
+  animator: {fileID: 2587265815480698272}
 --- !u!114 &7879872706765193664
 MonoBehaviour:
   m_ObjectHideFlags: 0

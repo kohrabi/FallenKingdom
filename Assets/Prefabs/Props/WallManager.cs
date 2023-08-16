@@ -12,8 +12,10 @@ public class WallManager : MonoBehaviour
         {
             faces = face.faces;
             Health = face.Health;
+            Price = face.Price;
         }
         public float Health = 3f;
+        public int Price = 3;
         public Sprite[] faces = new Sprite[4];
     }
     public GameObject WallPrefab;

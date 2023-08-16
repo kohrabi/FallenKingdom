@@ -74,6 +74,7 @@
     <Compile Include="Assets\Prefabs\DestroyableEntity.cs" />
     <Compile Include="Assets\Prefabs\LightScript.cs" />
     <Compile Include="Assets\Prefabs\Props\Walls.cs" />
+    <Compile Include="Assets\Counter.cs" />
     <Compile Include="Assets\TorchScript.cs" />
     <Compile Include="Assets\Prefabs\CameraPostProcess.cs" />
     <Compile Include="Assets\Prefabs\Friendly\FriendlyAI.cs" />

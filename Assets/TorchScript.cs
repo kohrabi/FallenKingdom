@@ -15,7 +15,8 @@ public class TorchScript : MonoBehaviour
 
     public void OnEnable()
     {
-        animator.Play("TorchEquip");
+        if (animator != null)
+            animator.Play("TorchEquip");
     }
 
     public void Move(bool move)

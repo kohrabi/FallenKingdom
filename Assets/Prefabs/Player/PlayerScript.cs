@@ -17,7 +17,7 @@ public class PlayerScript : MonoBehaviour
     bool openShopInput = false;
     bool rotateTileInputCheck = false;
     public GameObject placingPrefab;
-    Transform gameManager;
+    Transform upgradeManager;
 
     Vector2 mouseInput;
 
@@ -26,13 +26,16 @@ public class PlayerScript : MonoBehaviour
     PickaxeScript pickaxe;
     TorchScript torch;
 
+    public int WoodsCount = 0;
+    public int RocksCount = 0;
+
     bool canMove = true;
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         wallManager = GameObject.FindWithTag("WallManager").GetComponent<WallManager>();
-        gameManager = GameObject.FindWithTag("UpgradeManager").transform;
+        upgradeManager = GameObject.FindWithTag("UpgradeManager").transform;
         pickaxe = transform.GetChild(2).GetComponent<PickaxeScript>();
         torch = transform.GetChild(3).GetComponent<TorchScript>();
         placingPrefab = wallManager.WallPrefab;
@@ -48,12 +51,10 @@ public class PlayerScript : MonoBehaviour
         rotateTileInputCheck = Input.GetKeyDown(KeyCode.R);
         mouseInput = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         // PlaceTiles
-        {
-            PlaceWallTemp();
-            RotateTile();
-            PlaceWall();
-            RemoveWall();
-        }
+        PlaceWallTemp();
+        RotateTile();
+        PlaceWall();
+        RemoveWall();
 
         WeaponHandle();
 
@@ -141,10 +142,10 @@ public class PlayerScript : MonoBehaviour
         {
             if (tempPrefab != null)
             {
-                if (!Physics2D.OverlapCircle(mouseInput, 0.2f))
+                if (!Physics2D.OverlapCircle(mouseInput, 0.2f) && upgradeManager.GetComponent<UpgradeManager>().Sold(tempPrefab.tag))
                 {
                     GameObject placedPrefab = Instantiate(tempPrefab);
-                    placedPrefab.transform.SetParent(gameManager);
+                    placedPrefab.transform.SetParent(upgradeManager);
                     Vector4 color = placedPrefab.transform.GetChild(0).GetComponent<SpriteRenderer>().color;
                     placedPrefab.GetComponent<BoxCollider2D>().enabled = true;
                     if (tempPrefab.tag != "Wall")
@@ -187,12 +188,19 @@ public class PlayerScript : MonoBehaviour
     {
         if (openShopInput)
         {
-            if (tempPrefab == null)
+            if (GameObject.Find("Canvas").transform.GetChild(2).gameObject.activeSelf)
             {
-                GameObject.Find("Canvas").transform.GetChild(0).gameObject.SetActive(true);
+                GameObject.Find("Canvas").transform.GetChild(2).gameObject.SetActive(false);
             }
             else
-                Destroy(tempPrefab);
+            {
+                if (tempPrefab == null)
+                {
+                    GameObject.Find("Canvas").transform.GetChild(2).gameObject.SetActive(true);
+                }
+                else
+                    Destroy(tempPrefab);
+            }
         }
     }
 

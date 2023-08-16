@@ -128,7 +128,7 @@ MonoBehaviour:
   animator: {fileID: 4460550551208594795}
   moveDir: {x: 0, y: 0}
   Offset: {x: 0, y: 0}
-  AttackDelay: 0.2
+  AttackDelay: 1
   placingPrefab: {fileID: 0}
 --- !u!114 &5021085897973656023
 MonoBehaviour:
@@ -143,6 +143,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   HealthPoint: 4
+  animator: {fileID: 4460550551208594795}
 --- !u!114 &6310040196427421759
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -160,7 +161,7 @@ MonoBehaviour:
   bulletPrefab: {fileID: 4536303448006705977, guid: 03ff7b081ab90d04b8a788464e195d3d, type: 3}
   bulletSpeed: 4
   blockMovement: 0
-  Damage: 2
+  Damage: 1
 --- !u!1 &5159819421056864222
 GameObject:
   m_ObjectHideFlags: 0
