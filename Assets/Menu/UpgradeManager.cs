@@ -16,6 +16,7 @@ public class UpgradeManager : MonoBehaviour
     public Upgrade[] Archer;
     public Upgrade[] Knight;
     public Upgrade[] Mage;
+    public Upgrade[] Torch;
 
     public int ArcherUpgrade = 0;
     public int KnightUpgrade = 0;
@@ -38,6 +39,8 @@ public class UpgradeManager : MonoBehaviour
                 player.WoodsCount -= Archer[ArcherUpgrade].Price;
             if (up == 3)
                 player.WoodsCount -= wallManager.WallFaces[wallManager.CurrentUpgrade].Price;
+            if (up == 4)
+                player.WoodsCount -= Torch[0].Price;
         }
         else
         {
@@ -58,8 +61,10 @@ public class UpgradeManager : MonoBehaviour
             Sold(false, 1);
         if (tag == "Mage")
             Sold(false, 2);
-        if (tag == "Torch")
+        if (tag == "Wall")
             Sold(true, 3);
+        if (tag == "Torch")
+            Sold(true, 4);
         return true;
     }
 
@@ -71,8 +76,10 @@ public class UpgradeManager : MonoBehaviour
             return PriceCheck(false, 1);
         if (tag == "Mage")
             return PriceCheck(false, 2);
-        if (tag == "Torch")
+        if (tag == "Wall")
             return PriceCheck(true, 3);
+        if (tag == "Torch")
+            return PriceCheck(true, 4);
         return false;
     }
 
@@ -85,6 +92,8 @@ public class UpgradeManager : MonoBehaviour
                 return money >= Archer[ArcherUpgrade].Price;
             if (up == 3)
                 return money >= wallManager.WallFaces[wallManager.CurrentUpgrade].Price;
+            if (up == 4)
+                return money >= Torch[0].Price;
         }
         else
         {
@@ -140,6 +149,8 @@ public class UpgradeManager : MonoBehaviour
             return Mage[MageUpgrade].Price;
         if (up == 3)
             return wallManager.WallFaces[wallManager.CurrentUpgrade].Price;
+        if (up == 4)
+            return Torch[0].Price;
         return 0;
     }
 

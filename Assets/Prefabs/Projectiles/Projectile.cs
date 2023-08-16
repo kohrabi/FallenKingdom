@@ -56,6 +56,9 @@ public class Projectile : MonoBehaviour
         if ((transform.parent.tag == "Archer" || transform.parent.tag == "Knight" || transform.parent.tag == "Mage") 
                 && other.gameObject.tag == "Player")
             return;
+        if (transform.parent.tag == "Player" &&
+            (other.transform.parent.tag == "Archer" || other.transform.parent.tag == "Knight" || other.transform.parent.tag == "Mage"))
+            return;
         DestroyableEntity health = other.gameObject.GetComponent<DestroyableEntity>();
         if (health != null)
             health.Hit(Damage);

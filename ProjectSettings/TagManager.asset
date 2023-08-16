@@ -16,6 +16,7 @@ TagManager:
   - Mage
   - Wall
   - UpgradeManager
+  - Torch
   layers:
   - Default
   - TransparentFX

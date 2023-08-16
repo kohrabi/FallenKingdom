@@ -2386,7 +2386,7 @@ MonoBehaviour:
     - {fileID: -921736565, guid: cd113d77b71d8f34d9af61c6b30035a2, type: 3}
     - {fileID: -1164441028, guid: cd113d77b71d8f34d9af61c6b30035a2, type: 3}
     - {fileID: 1602515173, guid: cd113d77b71d8f34d9af61c6b30035a2, type: 3}
-  - Health: 4
+  - Health: 5
     Price: 6
     faces:
     - {fileID: -1164441028, guid: cd113d77b71d8f34d9af61c6b30035a2, type: 3}
@@ -4212,32 +4212,37 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Archer:
-  - sprite: {fileID: 337228366, guid: cd113d77b71d8f34d9af61c6b30035a2, type: 3}
+  - sprite: {fileID: 1177606506, guid: cd113d77b71d8f34d9af61c6b30035a2, type: 3}
     Health: 0
     HitPoint: 0
     Price: 3
-  - sprite: {fileID: 12812100, guid: cd113d77b71d8f34d9af61c6b30035a2, type: 3}
+  - sprite: {fileID: 337228366, guid: cd113d77b71d8f34d9af61c6b30035a2, type: 3}
     Health: 0
     HitPoint: 0
     Price: 6
   Knight:
-  - sprite: {fileID: -1002161889, guid: cd113d77b71d8f34d9af61c6b30035a2, type: 3}
+  - sprite: {fileID: 763272169, guid: cd113d77b71d8f34d9af61c6b30035a2, type: 3}
     Health: 0
     HitPoint: 0
     Price: 3
-  - sprite: {fileID: 565850624, guid: cd113d77b71d8f34d9af61c6b30035a2, type: 3}
+  - sprite: {fileID: -1002161889, guid: cd113d77b71d8f34d9af61c6b30035a2, type: 3}
     Health: 0
     HitPoint: 0
     Price: 6
   Mage:
-  - sprite: {fileID: -2011362988, guid: cd113d77b71d8f34d9af61c6b30035a2, type: 3}
+  - sprite: {fileID: -458959686, guid: cd113d77b71d8f34d9af61c6b30035a2, type: 3}
     Health: 0
     HitPoint: 0
     Price: 3
-  - sprite: {fileID: -770618270, guid: cd113d77b71d8f34d9af61c6b30035a2, type: 3}
+  - sprite: {fileID: -2011362988, guid: cd113d77b71d8f34d9af61c6b30035a2, type: 3}
     Health: 0
     HitPoint: 0
     Price: 8
+  Torch:
+  - sprite: {fileID: -128468293, guid: cd113d77b71d8f34d9af61c6b30035a2, type: 3}
+    Health: 4
+    HitPoint: 0
+    Price: 4
   ArcherUpgrade: 0
   KnightUpgrade: 0
   MageUpgrade: 0
@@ -7170,6 +7175,7 @@ GameObject:
   - component: {fileID: 1777171415}
   - component: {fileID: 1777171414}
   - component: {fileID: 1777171417}
+  - component: {fileID: 1777171418}
   m_Layer: 5
   m_Name: BuyFriendly
   m_TagString: Untagged
@@ -7243,7 +7249,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1777171415}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1777171418}
+        m_TargetAssemblyTypeName: FriendlyButton, Assembly-CSharp
+        m_MethodName: OnClick
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1777171415
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7294,6 +7312,21 @@ CanvasGroup:
   m_Interactable: 1
   m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0
+--- !u!114 &1777171418
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1777171412}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c35c12f41d752fe49b3b99b0b03636c1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentFriendly: {fileID: 1594463067859310312, guid: 938b1c27cfc665b45809bcd038d1d6c2, type: 3}
+  Woods: 1
+  Type: 4
 --- !u!1 &1807474788
 GameObject:
   m_ObjectHideFlags: 0
@@ -8792,6 +8825,63 @@ TilemapCollider2D:
   m_CorrespondingSourceObject: {fileID: 6821418465663731156, guid: 135d6c0cb063a3c4a944bc52db55e24c, type: 3}
   m_PrefabInstance: {fileID: 695397210}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &2579445009166369145
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1594463067859310312, guid: 938b1c27cfc665b45809bcd038d1d6c2, type: 3}
+      propertyPath: m_Name
+      value: Torch
+      objectReference: {fileID: 0}
+    - target: {fileID: 2020042628886066976, guid: 938b1c27cfc665b45809bcd038d1d6c2, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 5.87
+      objectReference: {fileID: 0}
+    - target: {fileID: 2020042628886066976, guid: 938b1c27cfc665b45809bcd038d1d6c2, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.37
+      objectReference: {fileID: 0}
+    - target: {fileID: 2020042628886066976, guid: 938b1c27cfc665b45809bcd038d1d6c2, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2020042628886066976, guid: 938b1c27cfc665b45809bcd038d1d6c2, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2020042628886066976, guid: 938b1c27cfc665b45809bcd038d1d6c2, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2020042628886066976, guid: 938b1c27cfc665b45809bcd038d1d6c2, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2020042628886066976, guid: 938b1c27cfc665b45809bcd038d1d6c2, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2020042628886066976, guid: 938b1c27cfc665b45809bcd038d1d6c2, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2020042628886066976, guid: 938b1c27cfc665b45809bcd038d1d6c2, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2020042628886066976, guid: 938b1c27cfc665b45809bcd038d1d6c2, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 938b1c27cfc665b45809bcd038d1d6c2, type: 3}
 --- !u!1001 &6861427099260444155
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8938,3 +9028,4 @@ SceneRoots:
   - {fileID: 1048906026}
   - {fileID: 866122491}
   - {fileID: 376670109}
+  - {fileID: 2579445009166369145}

@@ -148,9 +148,9 @@ public class PlayerScript : MonoBehaviour
                     placedPrefab.transform.SetParent(upgradeManager);
                     Vector4 color = placedPrefab.transform.GetChild(0).GetComponent<SpriteRenderer>().color;
                     placedPrefab.GetComponent<BoxCollider2D>().enabled = true;
-                    if (tempPrefab.tag != "Wall")
-                        tempPrefab.GetComponent<Attackable>().enabled = true;
                     placedPrefab.transform.GetChild(0).GetComponent<SpriteRenderer>().color = new Color(color.x, color.y, color.z, 1f);
+                    if (tempPrefab.tag != "Wall" && tempPrefab.tag != "Torch")
+                        tempPrefab.GetComponent<Attackable>().enabled = true;
                 }
              }
         }
@@ -176,7 +176,7 @@ public class PlayerScript : MonoBehaviour
             placingPrefab = gameObject;
             Vector2 pos = new Vector2(Mathf.Round(mouseInput.x), Mathf.Round(mouseInput.y));
             tempPrefab = Instantiate(placingPrefab, new Vector2(pos.x, pos.y), Quaternion.identity);
-            if (tempPrefab.tag != "Wall")
+            if (tempPrefab.tag != "Wall" && tempPrefab.tag != "Torch")
                 tempPrefab.GetComponent<Attackable>().enabled = false;
             tempPrefab.GetComponent<BoxCollider2D>().enabled = false;
             Vector4 color = tempPrefab.transform.GetChild(0).GetComponent<SpriteRenderer>().color;
@@ -206,7 +206,7 @@ public class PlayerScript : MonoBehaviour
 
     private void RotateTile()
     {
-        if (rotateTileInputCheck && tempPrefab != null && tempPrefab.tag == "Walls")
+        if (rotateTileInputCheck && tempPrefab != null && tempPrefab.tag == "Wall")
         {
             tempPrefab.GetComponent<Walls>().ChangeFace();
         }

@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 
 public class FriendlyAI : MonoBehaviour
@@ -18,6 +19,28 @@ public class FriendlyAI : MonoBehaviour
     {
         attackComponent = GetComponent<Attackable>();        
         spawner = GameObject.FindWithTag("EnemySpawner").GetComponent<EnemySpawner>();
+        var upgradeCheck = GameObject.FindWithTag("UpgradeManager").GetComponent<UpgradeManager>();
+        if (tag == "Archer" && upgradeCheck.ArcherUpgrade > 0)
+        {
+            var currentUpgrade = upgradeCheck.Archer[upgradeCheck.ArcherUpgrade];
+            transform.GetChild(1).GetChild(0).GetComponent<SpriteRenderer>().sprite = currentUpgrade.sprite;
+            GetComponent<Attackable>().Damage = currentUpgrade.HitPoint;
+            GetComponent<DestroyableEntity>().HealthPoint = currentUpgrade.Health;
+        }
+        else if (tag == "Knight" && upgradeCheck.KnightUpgrade > 0)
+        {
+            var currentUpgrade = upgradeCheck.Knight[upgradeCheck.KnightUpgrade];
+            transform.GetChild(0).GetComponent<SpriteRenderer>().sprite = currentUpgrade.sprite;
+            GetComponent<Attackable>().Damage = currentUpgrade.HitPoint;
+            GetComponent<DestroyableEntity>().HealthPoint = currentUpgrade.Health;
+        }
+        else if (tag == "Mage" && upgradeCheck.MageUpgrade > 0)
+        {
+            var currentUpgrade = upgradeCheck.Mage[upgradeCheck.MageUpgrade];
+            transform.GetChild(0).GetComponent<SpriteRenderer>().sprite = currentUpgrade.sprite;
+            GetComponent<Attackable>().Damage = currentUpgrade.HitPoint;
+            GetComponent<DestroyableEntity>().HealthPoint = currentUpgrade.Health;
+        }
     }
 
     // Update is called once per frame
