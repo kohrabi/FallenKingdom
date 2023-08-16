@@ -1,3 +1,5 @@
+using System.Collections;
+using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 
 public class PlayerScript : MonoBehaviour
@@ -9,6 +11,7 @@ public class PlayerScript : MonoBehaviour
     public Animator animator;
     public Vector2 moveDir;
     public Vector2 Offset = Vector2.zero;
+    public float AttackDelay = 0.2f;
 
     Vector2 facing = Vector2.right;
     bool openShopInput = false;
@@ -18,13 +21,23 @@ public class PlayerScript : MonoBehaviour
 
     Vector2 mouseInput;
 
+    float attackTime;
+    Attackable attackable;
+    PickaxeScript pickaxe;
+    TorchScript torch;
+
+    bool canMove = true;
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         wallManager = GameObject.FindWithTag("WallManager").GetComponent<WallManager>();
         gameManager = GameObject.FindWithTag("UpgradeManager").transform;
+        pickaxe = transform.GetChild(2).GetComponent<PickaxeScript>();
+        torch = transform.GetChild(3).GetComponent<TorchScript>();
         placingPrefab = wallManager.WallPrefab;
+        attackable = GetComponent<Attackable>();
+        attackTime = Time.time + AttackDelay;
     }
 
     // Update is called once per frame
@@ -34,15 +47,57 @@ public class PlayerScript : MonoBehaviour
         openShopInput = Input.GetKeyDown(KeyCode.B);
         rotateTileInputCheck = Input.GetKeyDown(KeyCode.R);
         mouseInput = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        PlaceWallTemp();
-        RotateTile();
-        PlaceWall();
-        RemoveWall();
+        // PlaceTiles
+        {
+            PlaceWallTemp();
+            RotateTile();
+            PlaceWall();
+            RemoveWall();
+        }
+
+        WeaponHandle();
+
+    }
+
+    void WeaponHandle()
+    {
+        if (Input.GetKeyDown(KeyCode.Q))
+        {
+            if (!pickaxe.gameObject.activeSelf)
+                pickaxe.gameObject.SetActive(true);
+            else
+                pickaxe.PutAway();
+        }
+        if (Input.GetKeyDown(KeyCode.E))
+        {
+            if (!torch.gameObject.activeSelf)
+                torch.gameObject.SetActive(true);
+            else
+                torch.PutAway();
+        }
+        if (Input.GetMouseButtonDown(0))
+        {
+            if (pickaxe.gameObject.activeSelf)
+            {
+                if (attackTime < Time.time)
+                {
+                    Vector2 pos = transform.position;
+                    attackable.Attack(mouseInput - pos);
+                    pickaxe.Attack();
+                    canMove = false;
+                    attackTime = Time.time + AttackDelay;
+                    StartCoroutine(BlockMovement(0.2F));
+                }
+            }
+        }
     }
 
     void FixedUpdate()
     {
-        Move();
+        if (canMove)
+            Move();
+        else
+            rb.velocity = Vector2.zero;
         if (tempPrefab != null)
         {
             Vector2 pos = new Vector2(Mathf.RoundToInt(mouseInput.x - 0.5f), Mathf.RoundToInt(mouseInput.y - 0.5f));
@@ -50,6 +105,36 @@ public class PlayerScript : MonoBehaviour
         }
     }
 
+    private IEnumerator BlockMovement(float time)
+    {
+        yield return new WaitForSeconds(time);
+        canMove = true;
+    }
+
+    private void ProcessInput()
+    {
+        if (!canMove)
+            return;
+        float moveX = Input.GetAxisRaw("Horizontal");
+        float moveY = Input.GetAxisRaw("Vertical");
+        moveDir = new Vector2(moveX, moveY).normalized;
+        if (moveDir != Vector2.zero && moveDir != facing && Mathf.Abs(moveDir.x) != Mathf.Abs(moveDir.y))
+            facing = moveDir;
+        // Changing State Between moving and idle
+        bool moving = moveDir != Vector2.zero;
+        animator.SetBool("isMoving", moveDir != Vector2.zero);
+        if (pickaxe.gameObject.activeSelf)
+            pickaxe.Move(moving);
+        if (torch.gameObject.activeSelf)
+            torch.Move(moving);
+    }
+
+    private void Move()
+    {
+        rb.velocity = new Vector2(moveDir.x * MovementSpeed, moveDir.y * MovementSpeed);
+    }
+
+    #region Placing Tiles
     private void PlaceWall()
     {
         if (Input.GetMouseButtonDown(0))
@@ -118,20 +203,5 @@ public class PlayerScript : MonoBehaviour
             tempPrefab.GetComponent<Walls>().ChangeFace();
         }
     }
-
-    private void ProcessInput()
-    {
-        float moveX = Input.GetAxisRaw("Horizontal");
-        float moveY = Input.GetAxisRaw("Vertical");
-        moveDir = new Vector2(moveX, moveY).normalized;
-        if (moveDir != Vector2.zero && moveDir != facing && Mathf.Abs(moveDir.x) != Mathf.Abs(moveDir.y))
-            facing = moveDir;
-        // Changing State Between moving and idle
-        animator.SetBool("isMoving", moveDir != Vector2.zero);
-    }
-
-    private void Move()
-    {
-        rb.velocity = new Vector2(moveDir.x * MovementSpeed, moveDir.y * MovementSpeed);
-    }
+    #endregion
 }

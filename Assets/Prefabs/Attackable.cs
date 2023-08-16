@@ -26,11 +26,12 @@ public class Attackable : MonoBehaviour
             float rotation = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
             Quaternion rotQua = Quaternion.Euler(0, 0, rotation); 
             GameObject entity = Instantiate(bulletPrefab, spawnPosition.position, rotQua);
+            Destroy(entity, 3f);
             entity.transform.SetParent(transform);
             entity.GetComponent<Rigidbody2D>().velocity = direction.normalized * bulletSpeed;
-            var projectile = entity.GetComponent<Projectile>();
-            projectile.Damage = Damage;
-            projectile.Range = Range;
+            entity.GetComponent<Projectile>().Damage = Damage;
+            entity.GetComponent<Projectile>().SetRange(Range);
+            entity.GetComponent<Projectile>().SetSpeed((direction.normalized * bulletSpeed).magnitude);
         }
         return blockMovement;
     }

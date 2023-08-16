@@ -4065,8 +4065,8 @@ TextureImporter:
         y: 288
         width: 16
         height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 9
+      pivot: {x: 0.19186401, y: 0.13583946}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -6137,15 +6137,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: monochrome-transparent_packed_287
+      name: Pickaxe
       rect:
         serializedVersion: 2
         x: 688
         y: 256
         width: 16
         height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 9
+      pivot: {x: 0.18355179, y: 0.18354988}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -22761,6 +22761,7 @@ TextureImporter:
       Mage5: -1400703756
       MageCurrency: 1654150683
       MageIcon: -1939117268
+      Pickaxe: -208280351
       Player: 1280974527
       Quiver: 1560929072
       Rock: 1725421689
@@ -23042,7 +23043,6 @@ TextureImporter:
       monochrome-transparent_packed_280: 1312407405
       monochrome-transparent_packed_285: 2009564221
       monochrome-transparent_packed_286: -664747494
-      monochrome-transparent_packed_287: -208280351
       monochrome-transparent_packed_288: -1706587995
       monochrome-transparent_packed_289: -1118247840
       monochrome-transparent_packed_29: -101674421

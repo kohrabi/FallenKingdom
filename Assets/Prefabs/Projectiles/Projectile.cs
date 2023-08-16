@@ -1,9 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.UI;
 using UnityEngine;
 
 public class Projectile : MonoBehaviour
 {
+    [HideInInspector] // This is public for Attackable to change the projectile Range when it hit
     public float Range;
     [HideInInspector] // This is public for Attackable to change the projectile damage when it hit
     public float Damage;
@@ -15,22 +17,31 @@ public class Projectile : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        _remainingRange = Range;
         rb = GetComponent<Rigidbody2D>();
-        speed = rb.velocity.magnitude;
+    }
+
+    public void SetRange(float range)
+    {
+        Range = range;
+        _remainingRange = Range;
+    }
+
+    public void SetSpeed(float speed)
+    {
+        this.speed = speed;
     }
 
     void FixedUpdate()
     {
         if (Range == 0)
             return;
-        if (_remainingRange <= 0)
+        if (_remainingRange <= 0.01f)
         {
-            Object.Destroy(gameObject);
+            Destroy(gameObject);
         }
         else
         {
-            _remainingRange = Mathf.Max(0, _remainingRange - speed);
+            _remainingRange = _remainingRange - speed;
         }
     }
 
@@ -40,7 +51,7 @@ public class Projectile : MonoBehaviour
         // this shit is stupid omgggg
         if (other.gameObject.tag == transform.parent.tag)
             return;
-        if (other.gameObject.tag == "Props")
+        if (other.gameObject.tag == "Props" && transform.parent.tag != "Player")
             return;
         if ((transform.parent.tag == "Archer" || transform.parent.tag == "Knight" || transform.parent.tag == "Mage") 
                 && other.gameObject.tag == "Player")
