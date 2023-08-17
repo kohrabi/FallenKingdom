@@ -11,6 +11,7 @@ public class CameraController : MonoBehaviour
     [SerializeField] private Vector3 CameraOffset = new Vector3(2f, 2f, -10f);
     [SerializeField] private Transform target;
 
+    bool playerDead = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -20,8 +21,21 @@ public class CameraController : MonoBehaviour
     void FixedUpdate()
     {
         if (target == null)
-            return;
-        moveDir = GameObject.FindWithTag("Player").GetComponent<PlayerScript>().moveDir;
+        {
+            var targetSecond = GameObject.Find("King");
+            if (targetSecond != null)
+            {
+                target = targetSecond.transform;
+                playerDead = true;
+                Time.timeScale = 2f;
+            }
+        }
+        if (!playerDead)
+        {
+            moveDir = GameObject.FindWithTag("Player").GetComponent<PlayerScript>().moveDir;
+        }
+        else
+            moveDir = Vector2.zero;
         Vector3 offset = moveDir;
         offset.Scale(CameraOffset);
         offset.z = -10f;

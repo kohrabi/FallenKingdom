@@ -146,6 +146,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   HealthPoint: 4
+  currentHP: 0
   animator: {fileID: 5957583390706178700}
 --- !u!95 &5957583390706178700
 Animator:
@@ -180,3 +181,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dfb5e44a5697c9c4998f986ca7631ca4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Remaining: 4

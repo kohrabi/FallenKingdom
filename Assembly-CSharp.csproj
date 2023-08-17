@@ -58,6 +58,7 @@
     <Analyzer Include="D:\Gamedev\Unity\2022.3.7f1\Editor\Data\Tools\Unity.SourceGenerators\Unity.Properties.SourceGenerator.dll" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\KingScript.cs" />
     <Compile Include="Assets\PickaxeScript.cs" />
     <Compile Include="Assets\MaskLight\LightingCamera.cs" />
     <Compile Include="Assets\Menu\UpgradeManager.cs" />
@@ -73,10 +74,12 @@
     <Compile Include="Assets\Prefabs\Attackable.cs" />
     <Compile Include="Assets\Prefabs\TimeManager.cs" />
     <Compile Include="Assets\Prefabs\DestroyableEntity.cs" />
+    <Compile Include="Assets\WaveEnd.cs" />
     <Compile Include="Assets\Prefabs\LightScript.cs" />
+    <Compile Include="Assets\Restart.cs" />
     <Compile Include="Assets\Prefabs\Props\Walls.cs" />
-    <Compile Include="Assets\PropRespawn.cs" />
     <Compile Include="Assets\ShopButton.cs" />
+    <Compile Include="Assets\PropRespawn.cs" />
     <Compile Include="Assets\Counter.cs" />
     <Compile Include="Assets\TorchScript.cs" />
     <Compile Include="Assets\Prefabs\CameraPostProcess.cs" />

@@ -41,7 +41,7 @@ public class TimeManager : MonoBehaviour
             InvertColor.SetFloat("_Threshold", Mathf.Lerp(threshold, InvertColorThreshold, DayNightChangeSpeed));
             if (threshold >= InvertColorThreshold - 0.04f)
             {
-                dayTime = Time.time + dayTime;
+                dayTime = Time.time + DayTime;
                 spawner.isDay = false;
                 for (int i = 0; i < propRespawns.Count; i++)    
                 {

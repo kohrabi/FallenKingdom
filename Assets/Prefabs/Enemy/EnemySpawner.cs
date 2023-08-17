@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Security.Cryptography;
+using TMPro;
 using UnityEngine;
 using UnityEngine.TextCore.Text;
 
@@ -20,15 +21,15 @@ public class EnemySpawner : MonoBehaviour
         }
         public GameObject Prefab;
         public int StartWave; // The first wave the enemy appear in;
-        public int EnemyCount;
-        public int CountAddPerWave;
+        public float EnemyCount;
+        public float CountAddPerWave;
     }
     public float TransitionDayNightDelay = 1f;
     public float PlayableZone = 5f; // The place where enemy cannot spawn
     public float PlayableZoneOffset = 2f;
     public float SpawnZone = 10f;
     public float ZoneDistance = 5f;
-    public int CurrentWave = 1;
+    public int CurrentWave = 0;
     public float SpawnDelay = 6f;
     public bool isDay = true;
     public bool isNight = false;
@@ -92,9 +93,14 @@ public class EnemySpawner : MonoBehaviour
             else
                 break;
         }
+        CurrentWave++;
         isDay = false;
         canSpawn = true;
         isNight = true;
+        var player = GameObject.FindWithTag("Player").GetComponent<DestroyableEntity>();
+        player.currentHP = player.HealthPoint;
+        foreach (GameObject wave in GameObject.FindGameObjectsWithTag("WaveText"))
+               wave.GetComponent<TMP_Text>().text = (CurrentWave - 1).ToString();
     }
 
     void SpawnWave()
@@ -119,7 +125,6 @@ public class EnemySpawner : MonoBehaviour
                 Y = Random.Range(-SpawnZone, -PlayableZone);
 
             GameObject enemy = Instantiate(randomEnemy.Prefab, new Vector2(X, Y), Quaternion.identity);
-            enemy.GetComponent<EnemyAI>().target = GameObject.FindWithTag("Player").transform;
             SpawnedEnemy.Add(enemy);
             if (randomEnemy.EnemyCount <= 0)
                 enemyToSpawn.Remove(randomEnemy);

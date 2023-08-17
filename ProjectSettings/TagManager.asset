@@ -19,6 +19,8 @@ TagManager:
   - Torch
   - King
   - Shop
+  - RotateButton
+  - WaveText
   layers:
   - Default
   - TransparentFX

@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 8488005736975774445}
   - component: {fileID: 7879872706765193664}
   m_Layer: 0
-  m_Name: EnemyParent
+  m_Name: EnemyParent 5
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -121,11 +121,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2b4ae731548b6c04a957d8965adee2a3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MovementSpeed: 3.52
+  MovementSpeed: 4
   originTarget: {fileID: 0}
   target: {fileID: 0}
   AttackRange: 4
-  AttackDelay: 2.52
+  AttackDelay: 4.23
 --- !u!114 &8488005736975774445
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -138,8 +138,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d72efdcb4c0ffd04497275a95a3639bf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  HealthPoint: 4
-  currentHP: 0
+  HealthPoint: 24.07
+  currentHP: 24
   animator: {fileID: 2587265815480698272}
 --- !u!114 &7879872706765193664
 MonoBehaviour:
@@ -158,7 +158,7 @@ MonoBehaviour:
   bulletPrefab: {fileID: 4536303448006705977, guid: 03ff7b081ab90d04b8a788464e195d3d, type: 3}
   bulletSpeed: 13
   blockMovement: 0.5
-  Damage: 1
+  Damage: 8.58
 --- !u!1 &8114107488072386382
 GameObject:
   m_ObjectHideFlags: 0
@@ -233,7 +233,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -2023569584, guid: cd113d77b71d8f34d9af61c6b30035a2, type: 3}
+  m_Sprite: {fileID: -363712271, guid: cd113d77b71d8f34d9af61c6b30035a2, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0

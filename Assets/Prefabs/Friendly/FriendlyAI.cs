@@ -12,8 +12,9 @@ public class FriendlyAI : MonoBehaviour
     private Transform target;
     private Attackable attackComponent;
     private EnemySpawner spawner;
+    public int CurrentUpgrade;
 
-    bool canAttack = true;
+    public bool canAttack = true;
     // Start is called before the first frame update
     void Start()
     {
@@ -22,13 +23,15 @@ public class FriendlyAI : MonoBehaviour
         var upgradeCheck = GameObject.FindWithTag("UpgradeManager").GetComponent<UpgradeManager>();
         if (tag == "Archer" && upgradeCheck.ArcherUpgrade > 0)
         {
+            CurrentUpgrade = upgradeCheck.ArcherUpgrade;
             var currentUpgrade = upgradeCheck.Archer[upgradeCheck.ArcherUpgrade];
-            transform.GetChild(1).GetChild(0).GetComponent<SpriteRenderer>().sprite = currentUpgrade.sprite;
+            transform.GetChild(1).GetComponent<SpriteRenderer>().sprite = currentUpgrade.sprite;
             GetComponent<Attackable>().Damage = currentUpgrade.HitPoint;
             GetComponent<DestroyableEntity>().HealthPoint = currentUpgrade.Health;
         }
         else if (tag == "Knight" && upgradeCheck.KnightUpgrade > 0)
         {
+            CurrentUpgrade = upgradeCheck.KnightUpgrade;
             var currentUpgrade = upgradeCheck.Knight[upgradeCheck.KnightUpgrade];
             transform.GetChild(0).GetComponent<SpriteRenderer>().sprite = currentUpgrade.sprite;
             GetComponent<Attackable>().Damage = currentUpgrade.HitPoint;
@@ -36,6 +39,7 @@ public class FriendlyAI : MonoBehaviour
         }
         else if (tag == "Mage" && upgradeCheck.MageUpgrade > 0)
         {
+            CurrentUpgrade = upgradeCheck.MageUpgrade;
             var currentUpgrade = upgradeCheck.Mage[upgradeCheck.MageUpgrade];
             transform.GetChild(0).GetComponent<SpriteRenderer>().sprite = currentUpgrade.sprite;
             GetComponent<Attackable>().Damage = currentUpgrade.HitPoint;

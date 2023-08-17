@@ -165,7 +165,7 @@ public class PlayerScript : MonoBehaviour
                     placedPrefab.GetComponent<BoxCollider2D>().enabled = true;
                     placedPrefab.transform.GetChild(0).GetComponent<SpriteRenderer>().color = new Color(color.x, color.y, color.z, 1f);
                     if (tempPrefab.tag != "Wall" && tempPrefab.tag != "Torch")
-                        tempPrefab.GetComponent<Attackable>().enabled = true;
+                        tempPrefab.GetComponent<FriendlyAI>().canAttack = true;
                 }
              }
         }
@@ -178,6 +178,7 @@ public class PlayerScript : MonoBehaviour
             Collider2D[] walls = Physics2D.OverlapCircleAll(mouseInput, 0.1f);
             if (walls.Length != 0)
             {
+                upgradeManager.GetComponent<UpgradeManager>().GetPrice(walls[0].gameObject.tag);
                 Destroy(walls[0].gameObject);
             }
         }
@@ -192,7 +193,9 @@ public class PlayerScript : MonoBehaviour
             Vector2 pos = new Vector2(Mathf.Round(mouseInput.x), Mathf.Round(mouseInput.y));
             tempPrefab = Instantiate(placingPrefab, new Vector2(pos.x, pos.y), Quaternion.identity);
             if (tempPrefab.tag != "Wall" && tempPrefab.tag != "Torch")
-                tempPrefab.GetComponent<Attackable>().enabled = false;
+                tempPrefab.GetComponent<FriendlyAI>().canAttack = false ;
+            if (tempPrefab.tag == "Wall")
+                GameObject.FindWithTag("RotateButton").GetComponent<CanvasGroup>().alpha = 1f;
             tempPrefab.GetComponent<BoxCollider2D>().enabled = false;
             Vector4 color = tempPrefab.transform.GetChild(0).GetComponent<SpriteRenderer>().color;
             tempPrefab.transform.GetChild(0).GetComponent<SpriteRenderer>().color = new Color(color.x, color.y, color.z, 0.3f);
@@ -214,7 +217,11 @@ public class PlayerScript : MonoBehaviour
                     GameObject.Find("Canvas").transform.GetChild(2).gameObject.SetActive(true);
                 }
                 else
+                {
+                    if (tempPrefab.tag == "Wall")
+                        GameObject.FindWithTag("RotateButton").GetComponent<CanvasGroup>().alpha = 0f;
                     Destroy(tempPrefab);
+                }
             }
         }
     }

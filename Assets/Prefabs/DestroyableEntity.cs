@@ -43,7 +43,10 @@ public class DestroyableEntity : MonoBehaviour
     {
         if (currentHP <= 0)
         {
-            StartCoroutine(Dead());
+            if (animator == null)
+                Destroy(gameObject);
+            else
+                StartCoroutine(Dead());
             // play dead animation and wait until it is finished then destroy it.
             // This needs to be placed elsewhere for dead animation
             //Object.Destroy(gameObject);

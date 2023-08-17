@@ -51,6 +51,21 @@ public class UpgradeManager : MonoBehaviour
         }
     }
 
+    public void GetPrice(string tag)
+    {
+        if (tag == "Archer")
+            player.WoodsCount += Archer[ArcherUpgrade].Price;
+        if (tag == "Knight")
+            player.RocksCount += Knight[KnightUpgrade].Price;
+        if (tag == "Mage")
+            player.RocksCount += Mage[MageUpgrade].Price;
+        if (tag == "Torch")
+            player.WoodsCount += Torch[0].Price;
+        if (tag == "Wall")
+            player.WoodsCount += wallManager.WallFaces[wallManager.CurrentUpgrade].Price;
+
+    }
+
     public bool Sold(string tag)
     {
         if (!PriceCheck(tag))
@@ -185,7 +200,7 @@ public class UpgradeManager : MonoBehaviour
         ArcherUpgrade++;
         foreach (GameObject archer in GameObject.FindGameObjectsWithTag("Archer"))
         {
-            archer.transform.GetChild(1).transform.GetChild(0).GetComponent<SpriteRenderer>().sprite = Archer[ArcherUpgrade].sprite;
+            archer.transform.GetChild(1).GetComponent<SpriteRenderer>().sprite = Archer[ArcherUpgrade].sprite;
             archer.GetComponent<DestroyableEntity>().ChangeHP(Archer[ArcherUpgrade].Health);
             archer.GetComponent<Attackable>().Damage = Archer[ArcherUpgrade].HitPoint;
         }

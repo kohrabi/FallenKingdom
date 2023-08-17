@@ -24,7 +24,7 @@ public class ProgressBar : MonoBehaviour
         if (timeManager.IsDayTime)
         {
             Current = Time.time;
-            Maximum = timeManager.DayTime;
+            Maximum = timeManager.dayTime;
             GetCurrentFill();
         }
     }

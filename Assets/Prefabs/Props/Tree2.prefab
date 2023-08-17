@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 2522316217380261557}
   - component: {fileID: 5496357594891584388}
   - component: {fileID: 899619281712829334}
+  - component: {fileID: 1474129664209717412}
   m_Layer: 0
   m_Name: Tree2
   m_TagString: Props
@@ -145,6 +146,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   HealthPoint: 4
+  currentHP: 0
   animator: {fileID: 899619281712829334}
 --- !u!95 &899619281712829334
 Animator:
@@ -167,3 +169,16 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &1474129664209717412
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8208784142411664675}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dfb5e44a5697c9c4998f986ca7631ca4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Remaining: 5

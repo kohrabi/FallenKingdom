@@ -3281,7 +3281,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: monochrome-transparent_packed_151
+      name: Wall2
       rect:
         serializedVersion: 2
         x: 80
@@ -3323,7 +3323,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: monochrome-transparent_packed_153
+      name: Wall2Side
       rect:
         serializedVersion: 2
         x: 112
@@ -11450,7 +11450,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: monochrome-transparent_packed_540
+      name: rqrw
       rect:
         serializedVersion: 2
         x: 32
@@ -11534,7 +11534,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: monochrome-transparent_packed_544
+      name: Wall4
       rect:
         serializedVersion: 2
         x: 96
@@ -12017,7 +12017,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: monochrome-transparent_packed_567
+      name: Projectile
       rect:
         serializedVersion: 2
         x: 464
@@ -13319,7 +13319,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: monochrome-transparent_packed_629
+      name: Time
       rect:
         serializedVersion: 2
         x: 672
@@ -13466,7 +13466,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: monochrome-transparent_packed_636
+      name: Wall6
       rect:
         serializedVersion: 2
         x: 0
@@ -13571,7 +13571,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: monochrome-transparent_packed_641
+      name: Wall7
       rect:
         serializedVersion: 2
         x: 80
@@ -13592,7 +13592,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: monochrome-transparent_packed_642
+      name: Wall3
       rect:
         serializedVersion: 2
         x: 96
@@ -15671,7 +15671,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: monochrome-transparent_packed_741
+      name: rwtqt
       rect:
         serializedVersion: 2
         x: 112
@@ -16154,7 +16154,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: monochrome-transparent_packed_764
+      name: RightMouse
       rect:
         serializedVersion: 2
         x: 480
@@ -17792,7 +17792,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: monochrome-transparent_packed_842
+      name: Wall5
       rect:
         serializedVersion: 2
         x: 160
@@ -20459,7 +20459,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: monochrome-transparent_packed_969
+      name: R
       rect:
         serializedVersion: 2
         x: 624
@@ -21110,7 +21110,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: monochrome-transparent_packed_1000
+      name: Rotate
       rect:
         serializedVersion: 2
         x: 336
@@ -22454,7 +22454,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: monochrome-transparent_packed_1064
+      name: WaveIcon
       rect:
         serializedVersion: 2
         x: 576
@@ -22773,13 +22773,26 @@ TextureImporter:
       MageIcon: -1939117268
       Pickaxe: -208280351
       Player: 1280974527
+      Projectile: 1890490867
       Q: 773297276
       Quiver: 1560929072
+      R: -37015355
+      RightMouse: -1356706778
       Rock: 1725421689
+      Rotate: 1040269504
       Shop: -334885233
       Shop2: -1855698302
+      Time: 1674982873
       Torch: -128468293
       Upgrade: 1884352066
+      Wall2: -1799401945
+      Wall2Side: -232626333
+      Wall3: -1935608682
+      Wall4: -1029847785
+      Wall5: 1111732809
+      Wall6: 861776501
+      Wall7: 312537574
+      WaveIcon: -863017648
       WoodWallFront: 1602515173
       WoodWallSide: -1164441028
       WoodWallTop: -921736565
@@ -22788,7 +22801,6 @@ TextureImporter:
       monochrome-transparent_packed_1: -2067348953
       monochrome-transparent_packed_10: 231768769
       monochrome-transparent_packed_100: 593848211
-      monochrome-transparent_packed_1000: 1040269504
       monochrome-transparent_packed_1001: -443187139
       monochrome-transparent_packed_1002: 793102809
       monochrome-transparent_packed_1003: 1352303546
@@ -22856,7 +22868,6 @@ TextureImporter:
       monochrome-transparent_packed_1061: -1196321613
       monochrome-transparent_packed_1062: 2136229278
       monochrome-transparent_packed_1063: -2134050634
-      monochrome-transparent_packed_1064: -863017648
       monochrome-transparent_packed_1065: -600806417
       monochrome-transparent_packed_1066: 54880141
       monochrome-transparent_packed_1067: -1997093297
@@ -22915,9 +22926,7 @@ TextureImporter:
       monochrome-transparent_packed_149: -1018824257
       monochrome-transparent_packed_15: 1613192778
       monochrome-transparent_packed_150: 183801821
-      monochrome-transparent_packed_151: -1799401945
       monochrome-transparent_packed_152: -659072170
-      monochrome-transparent_packed_153: -232626333
       monochrome-transparent_packed_154: 18891118
       monochrome-transparent_packed_155: 1098907589
       monochrome-transparent_packed_156: 1264715534
@@ -23318,11 +23327,9 @@ TextureImporter:
       monochrome-transparent_packed_538: 50846917
       monochrome-transparent_packed_539: -631485333
       monochrome-transparent_packed_54: -2127441572
-      monochrome-transparent_packed_540: -1185721000
       monochrome-transparent_packed_541: -1256217293
       monochrome-transparent_packed_542: 1210549660
       monochrome-transparent_packed_543: -510341425
-      monochrome-transparent_packed_544: -1029847785
       monochrome-transparent_packed_545: -850485408
       monochrome-transparent_packed_546: 573730754
       monochrome-transparent_packed_547: -276731928
@@ -23346,7 +23353,6 @@ TextureImporter:
       monochrome-transparent_packed_564: -928997659
       monochrome-transparent_packed_565: 1770894329
       monochrome-transparent_packed_566: -539546740
-      monochrome-transparent_packed_567: 1890490867
       monochrome-transparent_packed_568: -1357776547
       monochrome-transparent_packed_569: -1534255672
       monochrome-transparent_packed_57: 1738360981
@@ -23414,7 +23420,6 @@ TextureImporter:
       monochrome-transparent_packed_626: -399594532
       monochrome-transparent_packed_627: -864935863
       monochrome-transparent_packed_628: 910331190
-      monochrome-transparent_packed_629: 1674982873
       monochrome-transparent_packed_63: -1095785
       monochrome-transparent_packed_630: 1286112332
       monochrome-transparent_packed_631: -81510515
@@ -23422,14 +23427,11 @@ TextureImporter:
       monochrome-transparent_packed_633: -1228422727
       monochrome-transparent_packed_634: -2052001920
       monochrome-transparent_packed_635: 189603111
-      monochrome-transparent_packed_636: 861776501
       monochrome-transparent_packed_637: -1194318376
       monochrome-transparent_packed_638: -1373134736
       monochrome-transparent_packed_639: 1117997559
       monochrome-transparent_packed_64: 982413225
       monochrome-transparent_packed_640: -299445491
-      monochrome-transparent_packed_641: 312537574
-      monochrome-transparent_packed_642: -1935608682
       monochrome-transparent_packed_643: 31173676
       monochrome-transparent_packed_644: 20056345
       monochrome-transparent_packed_645: -1768006370
@@ -23536,7 +23538,6 @@ TextureImporter:
       monochrome-transparent_packed_739: -2143174090
       monochrome-transparent_packed_74: 92328822
       monochrome-transparent_packed_740: -1473642402
-      monochrome-transparent_packed_741: 1934569455
       monochrome-transparent_packed_742: 570015407
       monochrome-transparent_packed_743: -1792249010
       monochrome-transparent_packed_744: 424502171
@@ -23558,7 +23559,6 @@ TextureImporter:
       monochrome-transparent_packed_761: -475425544
       monochrome-transparent_packed_762: 1138176559
       monochrome-transparent_packed_763: -433880977
-      monochrome-transparent_packed_764: -1356706778
       monochrome-transparent_packed_765: -400558411
       monochrome-transparent_packed_766: -35979338
       monochrome-transparent_packed_767: -1984261716
@@ -23641,7 +23641,6 @@ TextureImporter:
       monochrome-transparent_packed_84: 1150920929
       monochrome-transparent_packed_840: 2004645207
       monochrome-transparent_packed_841: -866753631
-      monochrome-transparent_packed_842: 1111732809
       monochrome-transparent_packed_843: -1392090804
       monochrome-transparent_packed_844: 1012239942
       monochrome-transparent_packed_845: 844298208
@@ -23778,7 +23777,6 @@ TextureImporter:
       monochrome-transparent_packed_965: 1384190096
       monochrome-transparent_packed_966: 238337423
       monochrome-transparent_packed_967: -1525215154
-      monochrome-transparent_packed_969: -37015355
       monochrome-transparent_packed_97: -1181706485
       monochrome-transparent_packed_970: 1767123031
       monochrome-transparent_packed_971: -1636123431
@@ -23812,6 +23810,8 @@ TextureImporter:
       monochrome-transparent_packed_997: -458284531
       monochrome-transparent_packed_998: -1730120938
       monochrome-transparent_packed_999: -1455307709
+      rqrw: -1185721000
+      rwtqt: 1934569455
       secret: -172904457
       something: -149258814
   mipmapLimitGroupName: 
