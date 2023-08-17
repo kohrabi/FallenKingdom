@@ -12,11 +12,13 @@ public class Projectile : MonoBehaviour
 
     float _remainingRange;
     float speed;
+    SoundManager sound;
 
     private Rigidbody2D rb;
     // Start is called before the first frame update
     void Start()
     {
+        sound = GameObject.FindWithTag("SoundManager").GetComponent<SoundManager>();    
         rb = GetComponent<Rigidbody2D>();
     }
 
@@ -71,5 +73,22 @@ public class Projectile : MonoBehaviour
         if (health != null)
             health.Hit(Damage);
         Destroy(gameObject);
+        if (other.gameObject.tag == "Props")
+        {
+            if (other.gameObject.name.Contains("Tree"))
+            {
+                sound.PlayClip(Random.Range(2, 5));
+            }
+            else
+            {
+                sound.PlayClip(1);
+            }
+        }
+        else if (other.gameObject.tag == "Wall")
+        {
+            sound.PlayClip(Random.Range(2, 5));
+        }
+        else
+            sound.PlayClip("Hit");
     }
 }

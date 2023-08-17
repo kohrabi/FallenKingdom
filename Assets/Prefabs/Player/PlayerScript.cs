@@ -32,12 +32,14 @@ public class PlayerScript : MonoBehaviour
     public int WoodsCount = 0;
     public int RocksCount = 0;
 
+    SoundManager sound;
     bool canMove = true;
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         shop = GameObject.FindWithTag("Shop").GetComponent<ShopButton>();
+        sound = GameObject.FindWithTag("SoundManager").GetComponent<SoundManager>();
         enemy = GameObject.FindWithTag("EnemySpawner").GetComponent<EnemySpawner>();
         wallManager = GameObject.FindWithTag("WallManager").GetComponent<WallManager>();
         upgradeManager = GameObject.FindWithTag("UpgradeManager").transform;
@@ -166,6 +168,7 @@ public class PlayerScript : MonoBehaviour
                     placedPrefab.transform.GetChild(0).GetComponent<SpriteRenderer>().color = new Color(color.x, color.y, color.z, 1f);
                     if (tempPrefab.tag != "Wall" && tempPrefab.tag != "Torch")
                         tempPrefab.GetComponent<FriendlyAI>().canAttack = true;
+                    sound.PlayClip("Grass1");
                 }
              }
         }
@@ -223,6 +226,12 @@ public class PlayerScript : MonoBehaviour
                     Destroy(tempPrefab);
                 }
             }
+        }
+        if (openShopInput && tempPrefab != null)
+        {
+            if (tempPrefab.tag == "Wall")
+                GameObject.FindWithTag("RotateButton").GetComponent<CanvasGroup>().alpha = 0f;
+            Destroy(tempPrefab);
         }
     }
 

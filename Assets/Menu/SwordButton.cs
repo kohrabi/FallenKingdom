@@ -3,16 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class SwordButton : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 {
-    GameObject arrow;
+    public GameObject arrow;
+    public GameObject canvas;
     // Start is called before the first frame update
-    void Start()
-    {
-        arrow = GameObject.Find("MainMenu").transform.GetChild(2).gameObject;
-    }
-
     public void OnPointerEnter(PointerEventData eventData)
     {
         arrow.SetActive(true);
@@ -25,6 +22,20 @@ public class SwordButton : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
 
     public void PlayGame()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        transform.GetChild(0).gameObject.GetComponent<Animation>().enabled = true;
+        canvas.SetActive(true);
+        StartCoroutine(Delay());
+    }
+
+    IEnumerator Delay()
+    {
+        var fade = canvas.transform.GetChild(0).gameObject;
+        var color = fade.GetComponent<Image>().color;
+        fade.GetComponent<Image>().color = new Color(color.r, color.g, color.b, Mathf.Lerp(color.a, 1, 2f));
+        yield return new WaitForSeconds(1f);
+        GameObject.Find("kohrabi").SetActive(false);
+        GameObject.Find("MainMenu").SetActive(false);
+        GameObject.Find("Title").SetActive(false);
+        canvas.transform.GetChild(1).gameObject.SetActive(true);
     }
 }

@@ -145,7 +145,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d72efdcb4c0ffd04497275a95a3639bf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  HealthPoint: 4
+  HealthPoint: 6
   currentHP: 0
   animator: {fileID: -3160089870357665379}
 --- !u!95 &-3160089870357665379

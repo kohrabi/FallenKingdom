@@ -21,6 +21,7 @@ TagManager:
   - Shop
   - RotateButton
   - WaveText
+  - SoundManager
   layers:
   - Default
   - TransparentFX
