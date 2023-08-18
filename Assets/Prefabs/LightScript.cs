@@ -21,7 +21,7 @@ public class LightScript : MonoBehaviour
     {
         if (nextTimeScale < Time.time)
         {
-            float randomScale = Random.RandomRange(Scale - ScaleRange, Scale + ScaleRange);
+            float randomScale = Random.Range(Scale - ScaleRange, Scale + ScaleRange);
             transform.localScale = Vector2.Lerp(transform.localScale, new Vector2(randomScale, randomScale), LightChangeScale);
             nextTimeScale = Time.time + LightChangeScale;
         }

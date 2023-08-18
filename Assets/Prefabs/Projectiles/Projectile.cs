@@ -1,6 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEditor.UI;
 using UnityEngine;
 
 public class Projectile : MonoBehaviour
@@ -89,6 +86,6 @@ public class Projectile : MonoBehaviour
             sound.PlayClip(Random.Range(2, 5));
         }
         else
-            sound.PlayClip("Hit");
+            sound.PlayClip(5);
     }
 }

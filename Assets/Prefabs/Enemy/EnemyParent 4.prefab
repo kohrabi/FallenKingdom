@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 4968136367268982190}
   - component: {fileID: 8488005736975774445}
   - component: {fileID: 7879872706765193664}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: EnemyParent 4
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -121,7 +121,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2b4ae731548b6c04a957d8965adee2a3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MovementSpeed: 2.41
+  MovementSpeed: 2.7
   originTarget: {fileID: 0}
   target: {fileID: 0}
   AttackRange: 4
@@ -138,7 +138,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d72efdcb4c0ffd04497275a95a3639bf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  HealthPoint: 22
+  HealthPoint: 59.6
   currentHP: 22
   animator: {fileID: 2587265815480698272}
 --- !u!114 &7879872706765193664
@@ -170,7 +170,7 @@ GameObject:
   - component: {fileID: 5273054339118730093}
   - component: {fileID: 7276820882593383407}
   - component: {fileID: 2587265815480698272}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: EnemySprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}

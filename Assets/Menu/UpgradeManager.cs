@@ -204,7 +204,7 @@ public class UpgradeManager : MonoBehaviour
             archer.GetComponent<DestroyableEntity>().ChangeHP(Archer[ArcherUpgrade].Health);
             archer.GetComponent<Attackable>().Damage = Archer[ArcherUpgrade].HitPoint;
         }
-        player.WoodsCount -= Archer[ArcherUpgrade - 1].Price;
+        //player.WoodsCount -= Archer[ArcherUpgrade - 1].Price;
         return 0;
     }
 
@@ -218,7 +218,7 @@ public class UpgradeManager : MonoBehaviour
             knight.GetComponent<Attackable>().Damage = Knight[KnightUpgrade].HitPoint;
             // Add chance to block attack
         }
-        player.RocksCount -= Knight[KnightUpgrade - 1].Price;
+        //player.RocksCount -= Knight[KnightUpgrade - 1].Price;
         return 1;
     }
 
@@ -232,7 +232,7 @@ public class UpgradeManager : MonoBehaviour
             mage.GetComponent<Attackable>().Damage = Mage[MageUpgrade].HitPoint;
             // add ability to heal more health
         }
-        player.RocksCount -= Mage[MageUpgrade - 1].Price;
+        //player.RocksCount -= Mage[MageUpgrade - 1].Price;
         return 2;
     }
 
@@ -245,7 +245,7 @@ public class UpgradeManager : MonoBehaviour
             wall.transform.GetChild(0).GetComponent<SpriteRenderer>().sprite = wallManager.WallFaces[currentUpgrade].faces[wall.GetComponent<Walls>().facing];
             wall.GetComponent<DestroyableEntity>().ChangeHP(wallManager.WallFaces[currentUpgrade].Health);
         }
-        player.WoodsCount -= wallManager.WallFaces[wallManager.CurrentUpgrade].Price;
+        //player.WoodsCount -= wallManager.WallFaces[wallManager.CurrentUpgrade].Price;
         return 3;
     }
 }

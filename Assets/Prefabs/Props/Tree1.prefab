@@ -145,7 +145,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d72efdcb4c0ffd04497275a95a3639bf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  HealthPoint: 6
+  HealthPoint: 8
   currentHP: 0
   animator: {fileID: -3160089870357665379}
 --- !u!95 &-3160089870357665379
@@ -181,4 +181,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dfb5e44a5697c9c4998f986ca7631ca4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  RespawnAfter: 5
   Remaining: 5

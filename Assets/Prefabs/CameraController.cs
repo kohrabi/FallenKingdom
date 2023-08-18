@@ -12,9 +12,11 @@ public class CameraController : MonoBehaviour
     [SerializeField] private Transform target;
 
     bool playerDead = false;
-    // Start is called before the first frame update
-    void Start()
+    PlayerScript player;
+
+    public void Start()
     {
+        player = GameObject.FindWithTag("Player").GetComponent<PlayerScript>();
     }
 
     // Update is called once per frame
@@ -27,12 +29,12 @@ public class CameraController : MonoBehaviour
             {
                 target = targetSecond.transform;
                 playerDead = true;
-                Time.timeScale = 2f;
+                Time.timeScale = 5f;
             }
         }
         if (!playerDead)
         {
-            moveDir = GameObject.FindWithTag("Player").GetComponent<PlayerScript>().moveDir;
+            moveDir = player.moveDir;
         }
         else
             moveDir = Vector2.zero;
@@ -41,5 +43,20 @@ public class CameraController : MonoBehaviour
         offset.z = -10f;
         Vector3 targetPos = target.position + offset;
         transform.position = Vector3.SmoothDamp(transform.position, targetPos, ref velocity, smoothTime);
+    }
+
+    public IEnumerator Shake(float duration, float magnitude)
+    {
+        Vector3 originalPos = transform.position;
+        float elapsed = 0f;
+        while (elapsed < duration)
+        {
+            float x = Random.Range(-1f, 1f) * magnitude;
+            float y = Random.Range(-1f, 1f) * magnitude;
+            transform.position += new Vector3(x, y, 0);
+            elapsed += Time.deltaTime;
+            yield return null;
+        }
+        transform.position = originalPos;
     }
 }

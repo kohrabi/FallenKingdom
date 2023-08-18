@@ -1,5 +1,4 @@
 using System.Collections;
-using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 
 public class PlayerScript : MonoBehaviour
@@ -168,7 +167,7 @@ public class PlayerScript : MonoBehaviour
                     placedPrefab.transform.GetChild(0).GetComponent<SpriteRenderer>().color = new Color(color.x, color.y, color.z, 1f);
                     if (tempPrefab.tag != "Wall" && tempPrefab.tag != "Torch")
                         tempPrefab.GetComponent<FriendlyAI>().canAttack = true;
-                    sound.PlayClip("Grass1");
+                    sound.PlayClip(0);
                 }
              }
         }
@@ -207,13 +206,13 @@ public class PlayerScript : MonoBehaviour
 
     private void PlaceWallTemp()
     {
-        if (openShopInput && canBuy)
+        if (openShopInput)
         {
             if (GameObject.Find("Canvas").transform.GetChild(2).gameObject.activeSelf)
             {
                 GameObject.Find("Canvas").transform.GetChild(2).gameObject.SetActive(false);
             }
-            else
+            else if (canBuy)
             {
                 if (tempPrefab == null)
                 {

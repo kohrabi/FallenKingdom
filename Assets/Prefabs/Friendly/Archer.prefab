@@ -139,8 +139,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c31358cd91550e54c8904097c07ecbad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Range: 0
-  AttackDelay: 1.32
+  Range: 15
+  AttackDelay: 1.72
+  CurrentUpgrade: 0
   canAttack: 1
 --- !u!114 &4993484259504633569
 MonoBehaviour:

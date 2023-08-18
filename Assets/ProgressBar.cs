@@ -15,7 +15,7 @@ public class ProgressBar : MonoBehaviour
     {
         image = GetComponent<Image>();
         timeManager = GameObject.FindWithTag("TimeManager").GetComponent<TimeManager>();
-        Maximum = timeManager.DayTime;
+        Maximum = timeManager.dayTime;
     }
 
     // Update is called once per frame
@@ -31,7 +31,7 @@ public class ProgressBar : MonoBehaviour
 
     void GetCurrentFill()
     {
-        float fillAmount = Current / Maximum;
+        float fillAmount = (Maximum - Current) / timeManager.DayTime;
         image.fillAmount = fillAmount;
     }
 }

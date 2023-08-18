@@ -9,7 +9,14 @@ public class SwordButton : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
 {
     public GameObject arrow;
     public GameObject canvas;
+    public Material InvertColor;
     // Start is called before the first frame update
+
+    public void Start()
+    {
+        InvertColor.SetFloat("_Threshold", 0);
+    }
+
     public void OnPointerEnter(PointerEventData eventData)
     {
         arrow.SetActive(true);

@@ -1,9 +1,6 @@
-using System.Collections;
-using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
-using static UpgradeManager;
 
 public class FriendlyButton : MonoBehaviour
 {
@@ -19,16 +16,7 @@ public class FriendlyButton : MonoBehaviour
         canvas = GetComponent<CanvasGroup>();
 
         transform.GetChild(2).GetComponent<TMP_Text>().text = upgradeManager.GetPrice(Type).ToString();
-        if (!upgradeManager.PriceCheck(Woods, Type))
-        {
-            canvas.alpha = 0.2f;
-            GetComponent<Button>().interactable = false;
-        }
-        else
-        {
-            GetComponent<Button>().interactable = true;
-            canvas.alpha = 1f;
-        }
+        Refresh();
     }
 
 
@@ -36,6 +24,12 @@ public class FriendlyButton : MonoBehaviour
     {
         if (GetComponent<Button>() == null || upgradeManager == null || canvas == null)
             return;
+        Refresh();
+    }
+
+    public void Refresh()
+    {
+        transform.GetChild(2).GetComponent<TMP_Text>().text = upgradeManager.GetPrice(Type).ToString();
         if (!upgradeManager.PriceCheck(Woods, Type))
         {
             canvas.alpha = 0.2f;

@@ -138,8 +138,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c31358cd91550e54c8904097c07ecbad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Range: 0
+  Range: 15
   AttackDelay: 2.01
+  CurrentUpgrade: 0
+  canAttack: 1
 --- !u!114 &4993484259504633569
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -265,7 +267,7 @@ Animator:
   m_GameObject: {fileID: 3883632718103212606}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: c89b683073aed234588560ae431ee10d, type: 2}
+  m_Controller: {fileID: 9100000, guid: 9d381a352bad6f7479b83e1c2831d8ee, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0

@@ -43,11 +43,13 @@ public class TimeManager : MonoBehaviour
             {
                 dayTime = Time.time + DayTime;
                 spawner.isDay = false;
+                
                 for (int i = 0; i < propRespawns.Count; i++)    
                 {
                     if (propRespawns[i].CheckRespawn())
                         propRespawns.RemoveAt(i);
                 }
+
                 lightCam.SetActive(false);
                 cam.GetComponent<LightingCamera>().enabled = false;
             }

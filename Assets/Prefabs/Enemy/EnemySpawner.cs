@@ -50,6 +50,8 @@ public class EnemySpawner : MonoBehaviour
 
     public void ChangeZone(float posMaxXY)
     {
+        if (posMaxXY + PlayableZoneOffset < PlayableZone)
+            return;
         PlayableZone = posMaxXY + PlayableZoneOffset;
         SpawnZone = posMaxXY + ZoneDistance;
     }
@@ -97,10 +99,10 @@ public class EnemySpawner : MonoBehaviour
         isDay = false;
         canSpawn = true;
         isNight = true;
-        var player = GameObject.FindWithTag("Player").GetComponent<DestroyableEntity>();
-        player.currentHP = player.HealthPoint;
         foreach (GameObject wave in GameObject.FindGameObjectsWithTag("WaveText"))
                wave.GetComponent<TMP_Text>().text = (CurrentWave - 1).ToString();
+        var player = GameObject.FindWithTag("Player").GetComponent<DestroyableEntity>();
+        player.currentHP = player.HealthPoint;
     }
 
     void SpawnWave()

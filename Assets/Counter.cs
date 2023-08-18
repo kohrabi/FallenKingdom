@@ -31,7 +31,7 @@ public class Counter : MonoBehaviour
 
     private void FixedUpdate()
     {
-        int value = woods ? player.WoodsCount : player.RocksCount;
+        int value = woods ? player.WoodsCount + 1 : player.RocksCount +1;
         if (currentValue != value)
         {
             SetTarget(value);
@@ -47,14 +47,6 @@ public class Counter : MonoBehaviour
             text.text = ((int)currentValue).ToString();
             yield return null;
         }    
-    }
-
-    public void AddValue(float value)
-    {
-        targetValue += value;
-        if (count != null)
-            StopCoroutine(count);
-        count = StartCoroutine(CountTo(targetValue));
     }
 
     public void SetTarget(float target)

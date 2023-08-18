@@ -55,7 +55,7 @@ public class EnemyAI : MonoBehaviour
                 }
                 if (target == null && collider[0].gameObject.tag != "Props" && collider[0].gameObject.tag != "Enemy")
                     target = collider[0].transform;
-                StartCoroutine(ChangeTarget(5f));
+                StartCoroutine(ChangeTarget(3f));
             }
         }
         if (target == null)

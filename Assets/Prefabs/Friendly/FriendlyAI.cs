@@ -1,6 +1,5 @@
 using System.Collections;
-using System.Collections.Generic;
-using UnityEditor.Experimental.GraphView;
+using System.Linq;
 using UnityEngine;
 
 public class FriendlyAI : MonoBehaviour
@@ -13,11 +12,12 @@ public class FriendlyAI : MonoBehaviour
     private Attackable attackComponent;
     private EnemySpawner spawner;
     public int CurrentUpgrade;
-
     public bool canAttack = true;
+    LayerMask enemyMask;
     // Start is called before the first frame update
     void Start()
     {
+        enemyMask = LayerMask.GetMask("Enemy");
         attackComponent = GetComponent<Attackable>();        
         spawner = GameObject.FindWithTag("EnemySpawner").GetComponent<EnemySpawner>();
         var upgradeCheck = GameObject.FindWithTag("UpgradeManager").GetComponent<UpgradeManager>();
@@ -53,7 +53,11 @@ public class FriendlyAI : MonoBehaviour
         if (canAttack && spawner.SpawnedEnemy.Count > 0)
         {
             if (target == null)
-                target = GetClosestEnemy();
+            {
+                var collider = Physics2D.OverlapCircleAll(transform.position, Range, enemyMask);
+                if (collider.Length != 0)
+                    target = collider[0].transform;
+            }
             if (target != null)
             {
                 Vector2 direction = target.position - transform.position;
@@ -65,22 +69,6 @@ public class FriendlyAI : MonoBehaviour
                 }
             }
         }
-    }
-
-    private Transform GetClosestEnemy()
-    {
-        Transform closest = null;
-        float distance = float.MaxValue;
-        foreach (GameObject enemy in spawner.SpawnedEnemy)
-        {
-            float currentDis = (transform.position - enemy.transform.position).magnitude;
-            if (distance > currentDis)
-            {
-                distance = currentDis;
-                closest = enemy.transform;
-            }
-        }
-        return closest;
     }
 
     private IEnumerator DelayAttack()
